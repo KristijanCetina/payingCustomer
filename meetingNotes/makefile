@@ -7,5 +7,10 @@ meetingNotes.pdf: *.md
 		--number-sections \
 		*.md -o meetingNotes.pdf
 
+push: meetingNotes.pdf
+	git add --all
+	git commit -m "update meeting notes"
+	git push
+
 clean:
 	@$(RM) -f meetingNotes.pdf
