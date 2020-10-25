@@ -1,3 +1,5 @@
+DATE=$(shell date)
+
 meetingNotes.pdf: *.md
 	@pandoc \
 		--variable fontsize=11pt \
@@ -9,8 +11,11 @@ meetingNotes.pdf: *.md
 
 push: meetingNotes.pdf
 	git add --all
-	git commit -m "update meeting notes"
+	git commit -m "update meeting notes $(DATE)"
 	git push
 
 clean:
 	@$(RM) -f meetingNotes.pdf
+
+test:
+	@echo $(LOGFILE)
