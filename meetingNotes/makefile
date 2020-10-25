@@ -1,4 +1,4 @@
-DATE=$(shell date)
+DATE=$(shell date +%d.%m.%Y)
 
 meetingNotes.pdf: *.md
 	@pandoc \
@@ -16,6 +16,3 @@ push: meetingNotes.pdf
 
 clean:
 	@$(RM) -f meetingNotes.pdf
-
-test:
-	@echo $(LOGFILE)
