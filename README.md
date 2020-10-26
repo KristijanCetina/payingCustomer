@@ -13,7 +13,7 @@ University (coding) project for classes PI & IIP
 
 ### team members
 
-Ivana Polonijo <ivana.polonojo@gmail.com>  
+Ivana Polonijo <ivana.polonijo@student.unipu.hr>  
 Marko Tomljanović <markot@windowslive.com>  
 Kristijan Cetina <kristijan.cetina@gmail.com>
 
