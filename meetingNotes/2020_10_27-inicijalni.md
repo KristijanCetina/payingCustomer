@@ -27,5 +27,6 @@ Dodatno je usuglašeno kako:
 * za daily stand-up ćemo koristiti slack
 * po scrumu, sprintovi će biti 2-tjedni.
 * sljedeći sastanak je dogovoren za 10.11.2020. Pozivnice već poslane na mail. Po potrebi se nađemo ranije
+* za praćenje napretka projekta koristi se [GitHub project](https://github.com/KristijanCetina/payingCustomer/projects/1)
 
 mtfbwy
