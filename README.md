@@ -17,6 +17,6 @@ Ivana Polonijo <ivana.polonijo@student.unipu.hr>
 Marko Tomljanović <markot@windowslive.com>  
 Kristijan Cetina <kristijan.cetina@gmail.com>
 
-### more
+## Bugs & Feature request
 
-to be continued ...
+If you have found a bug or have a feature request please open an [issue](https://github.com/KristijanCetina/payingCustomer/issues)
