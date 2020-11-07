@@ -1,4 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e0199598-bcb6-4707-8b2c-f268c0efd927/deploy-status)](https://app.netlify.com/sites/payingcustomer/deploys)
+[![GitHub license](https://img.shields.io/github/license/srggrs/assign-one-project-github-action.svg)][license]
+
+[license]: https://github.com/KristijanCetina/payingCustomer/blob/main/LICENSE
 
 # payingCustomer
 
