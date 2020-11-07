@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e0199598-bcb6-4707-8b2c-f268c0efd927/deploy-status)](https://app.netlify.com/sites/payingcustomer/deploys)
+
 # payingCustomer
 
 paying customer is a king. So we want to make it easy for them to pay
