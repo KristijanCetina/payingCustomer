@@ -3,6 +3,8 @@
 ## Project setup
 
 ```bash
+git clone https://github.com/KristijanCetina/payingCustomer
+cd paying_customer
 npm install
 ```
 
