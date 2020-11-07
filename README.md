@@ -2,7 +2,7 @@
 
 # payingCustomer
 
-[payingCustomer - a subscriptions management system](https://payingcustomer.netlify.app/)
+[payingCustomer - a subscriptions management system](https://payingcustomer.netlify.app/)  
 paying customer is a king. So we want to make it easy for them to pay
 
 ## About
