@@ -2,12 +2,13 @@
 
 # payingCustomer
 
+[payingCustomer - a subscriptions management system](https://payingcustomer.netlify.app/)
 paying customer is a king. So we want to make it easy for them to pay
 
 ## About
 
 subscriptions management system  
-[chargebee](https://www.chargebee.com/) - on steroids 🤪
+just like [chargebee](https://www.chargebee.com/) - but on steroids 🤪
 
 ### purpose
 
