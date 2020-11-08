@@ -2,11 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
-import VueGtag from "vue-gtag";
-
-Vue.use(VueGtag, {
-  config: { id: "G-14K37BFQHT" }
-});
 
 Vue.use(VueRouter)
 
