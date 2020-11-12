@@ -23,6 +23,9 @@ Ivana Polonijo <ivana.polonijo@student.unipu.hr>
 Marko Tomljanović <markot@windowslive.com>  
 Kristijan Cetina <kristijan.cetina@gmail.com>
 
+### Use case diagram
+use case diagram can be found [here](https://lucid.app/documents/view/33b71eb6-03a9-465b-becd-29f736a28907)
+
 ## Bugs & Feature request
 
 If you have found a bug or have a feature request please open an [issue](https://github.com/KristijanCetina/payingCustomer/issues)
