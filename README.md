@@ -24,7 +24,13 @@ Marko Tomljanović <markot@windowslive.com>
 Kristijan Cetina <kristijan.cetina@gmail.com>
 
 ### Use case diagram
+
 use case diagram can be found [here](https://lucid.app/documents/view/33b71eb6-03a9-465b-becd-29f736a28907)
+
+### Figma prototype
+
+Figma prototype can be found [here](https://www.figma.com/file/tFehKiuboUjI9VEC96cR2S/PIIIP-Prototype?node-id=0%3A1)
+
 
 ## Bugs & Feature request
 
