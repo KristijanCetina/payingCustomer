@@ -29,7 +29,7 @@ use case diagram can be found [here](https://lucid.app/documents/view/33b71eb6-0
 
 
 ### Class case diagram 
-class diagram can be found[here](https://lucid.app/lucidchart/6a0ba745-34a0-4183-9ed0-fe7eff8dc04a/view?page=0_0#?folder_id=home&browser=icon)
+class diagram can be found [here](https://lucid.app/lucidchart/6a0ba745-34a0-4183-9ed0-fe7eff8dc04a/view?page=0_0#?folder_id=home&browser=icon)
 
 ### Figma prototype
 
