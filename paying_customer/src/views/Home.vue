@@ -6,7 +6,7 @@
         <h1>Paying Customer</h1><br><br>
         <p>The way you get started is to quit talking and begin doing. <br><br> Walt Disney</p><br><br><br><br><br>
         <div style="margin-left: 31%">
-          <a href="#" class="mx auto fa fa-facebook"></a>&nbsp;
+        <a href="#" class="mx auto fa fa-facebook"></a>&nbsp;
         <a href="#" class="fa fa-linkedin"></a>&nbsp;
         <a href="#" class="fa fa-instagram"></a>
         </div>
@@ -14,7 +14,7 @@
       <div class="col-sm"><img style="width: 400px; border-radius: 83px" src="@/assets/logoPC.png" alt="Logo"></div>
       <div class="col"><h1 style="font-family: 'Roboto', sans-serif">Make your paymants easier</h1><br><br>
       <p style="font-family: 'Roboto', sans-serif">We will ensure you get the best experience with Paying Customer</p><br>
-        <button type="button" class="btn btn-primary btn-lg position-absolute" style="margin-left: 21%; margin-top: 25%">GET START</button>
+        <button type="button" class="btn btn-lg position-absolute" style="margin-left: 22%; margin-top: 25%; background-color:#384F7B; color:#ffffff">GET START</button>
       </div>
       <div class="col-1"></div>       
     </div>
