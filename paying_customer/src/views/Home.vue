@@ -1,18 +1,19 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Ovo je novi dom za našu ubercool aplikaciju"/>
-  </div>
+<div class="grid-container">
+  <div class="left"></div>
+  <div class="right"></div>
+</div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+<style >
+.grid-container {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "left right";
 }
-</script>
+.left { grid-area: left; background-color: aqua; }
+.right { grid-area: right; }
+</style>
