@@ -1,7 +1,7 @@
 <template>
 <div class="grid-container">
-  <div class="sad"></div>
-  <div class="asd"></div>
+  <div class="left"></div>
+  <div class="right"></div>
 </div>
 </template>
 
@@ -12,11 +12,8 @@
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-template-areas:
-    "sad asd";
+    "left right";
 }
-.sad { 
-  grid-area: sad;
-  background-color: aqua;
-}
-.asd { grid-area: asd; }
+.left { grid-area: left; background-color: aqua; }
+.right { grid-area: right; }
 </style>
