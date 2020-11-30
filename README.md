@@ -16,8 +16,8 @@ just like [chargebee](https://www.chargebee.com/) - but on steroids 🤪
 ### purpose
 
 University (coding) project for classes [PI](ntankovic.unipu.hr/pi) & [IIP](ntankovic.unipu.hr/iip).  
-Advisors:  
-* doc. dr. sc. Nikola Tanković (ntankovic.unipu.hr)  
+Advisors: 
+* doc. dr. sc. Nikola Tanković (http://ntankovic.unipu.hr)  
 * Toni Starčić, univ. bacc. inf.
 
 ### team members
