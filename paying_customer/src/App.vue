@@ -21,7 +21,7 @@
           >
             <b-nav-item to="/"><a style="color: #0066cc">HOME</a></b-nav-item>
             <b-nav-item to="/AboutAs"
-              ><a style="color: #0066cc">ABOUTUS</a></b-nav-item
+              ><a style="color: #0066cc">ABOUT US</a></b-nav-item
             >
             <b-nav-item to="/Contact"
               ><a style="color: #0066cc">CONTACT</a></b-nav-item
