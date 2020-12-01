@@ -13,7 +13,7 @@ just like [chargebee](https://www.chargebee.com/) - but on steroids 🤪
 
 ### team members
 
-Kristijan Cetina <kristijan.cetina@gmail.com>
+Kristijan Cetina <kristijan.cetina@gmail.com>  
 Ivana Polonijo <ivana.polonijo@student.unipu.hr>  
 Marko Tomljanović <markot@windowslive.com>  
 
@@ -22,7 +22,7 @@ Marko Tomljanović <markot@windowslive.com>
 University (coding) project for classes PI & IIP
 [Fakultet informatike u Puli ](https://fipu.unipu.hr/)  
 [Kolegij: Programsko inženjerstvo & Izrada informatičkih projekata](http://ntankovic.unipu.hr/)  
-Mentori: [doc. dr. sc. Nikola Tanković](ntankovic.unipu.hr) i Toni Starčić, univ. bacc. inf.
+Mentori: [doc. dr. sc. Nikola Tanković](https://ntankovic.unipu.hr/) i Toni Starčić, univ. bacc. inf.
 
 
 ### Kratki opis funkcionalnosti
@@ -31,8 +31,9 @@ Core svrha aplikacije je da omogući plaćanje članarina u obliku pretplate te 
 admina i korisnika - je li sve plaćeno, ima li kašnjenja itd. 
 Uz to omogućava i pregled novosti i rasporeda zbivanja. 
 
-use case diagram can be found [HERE](https://lucid.app/documents/view/33b71eb6-03a9-465b-becd-29f736a28907)
-class diagram can be found [HERE](https://lucid.app/lucidchart/6a0ba745-34a0-4183-9ed0-fe7eff8dc04a/view?page=0_0#?folder_id=home&browser=icon)
+Use case diagram can be found [HERE](https://lucid.app/documents/view/33b71eb6-03a9-465b-becd-29f736a28907)  
+
+Class diagram can be found [HERE](https://lucid.app/lucidchart/6a0ba745-34a0-4183-9ed0-fe7eff8dc04a/view?page=0_0#?folder_id=home&browser=icon)
 
 ### Figma prototype
 
