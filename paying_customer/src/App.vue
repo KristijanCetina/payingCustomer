@@ -20,7 +20,7 @@
             style="font-family: 'Roboto', sans-serif"
           >
             <b-nav-item to="/"><a style="color: #0066cc">HOME</a></b-nav-item>
-            <b-nav-item to="/AboutAs"
+            <b-nav-item to="/AboutUs"
               ><a style="color: #0066cc">ABOUT US</a></b-nav-item
             >
             <b-nav-item to="/Contact"
