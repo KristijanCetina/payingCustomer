@@ -1,5 +1,6 @@
 <template>
  <div class="container-fluid">
+     <div class="blueLine"></div>
   <div class="row">
     <div class="col-xs-6 col-md-5"><br><br>
       <img style="width: 400px; margin-left: 53px; border-radius: 83px" src="@/assets/logoPC.png" class="img-fluid" alt="Logo">
@@ -116,7 +117,7 @@
                             <div class="card">
                                 <div class="card-body text-center mt-4">
                                     <h4 class="card-title">Marko Tomljanović</h4>
-                                    <p class="card-text">Born in Požega, where he finished primary and high school. He then enrolled in the Faculty of Electrical Engineering where he became bacc.ing.el . Finally, he enrolled as a graduate at the Faculty of Informatics in Pula</p>
+                                    <p class="card-text">Born in Požega, where he finished primary and high school. He then enrolled in the Faculty of Electrical Engineering where he became bacc.ing.el. Finally, he enrolled as a graduate at the Faculty of Informatics in Pula</p>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="https://www.facebook.com/cubus1/">

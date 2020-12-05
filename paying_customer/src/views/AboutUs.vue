@@ -1,6 +1,6 @@
 <template>
  <div class="container-fluid">
-
+   <div class="blueLine"></div>
   <div class="row">
     <div class="col-xs-6 col-md-6"><br><br>
       <img style="width: 400px; margin-left: 53px; border-radius: 83px" src="@/assets/logoPC.png" class="img-fluid" alt="Logo">

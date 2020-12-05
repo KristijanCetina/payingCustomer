@@ -47,11 +47,20 @@
 
 
 <style lang="scss">
+body {
+    background: linear-gradient(#f1f1f1, #f1f1f1);
+}
 h1,p{
   font-family: 'Roboto', sans-serif;
 }
-body {
-  background-color: #f1f1f1;
+.blueLine {
+    position: fixed;
+    top: 113px;
+    right: 814px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #384F7B;
 }
 .nav-item {
   position: relative;

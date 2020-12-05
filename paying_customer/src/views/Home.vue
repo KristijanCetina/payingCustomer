@@ -1,5 +1,6 @@
 <template>
-  <div class="container-fluid">   
+  <div class="container-fluid">  
+    <div class="blueLine"></div> 
     <br><br><br>
     <div class="row">
       <div class="col" style="color: #ffffff">
@@ -25,12 +26,5 @@
 
 <style>
 @import './../assets/iconsSM.css';
-
-html,body {
-    height: 100%;
-}
-body {
-    background: linear-gradient(90deg, #384F7B 20%, #384F7B 20%, #384F7B 40%, #F1F1F1 40%, #F1F1F1 60%, #F1F1F1 60%, #F1F1F1 80%, #F1F1F1 80%);
-}
 </style>
  
