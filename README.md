@@ -41,7 +41,8 @@ Figma prototype can be found [HERE](https://www.figma.com/file/tFehKiuboUjI9VEC9
 
 ### Zaduženja (planirana) po članu tima 
 Ivana Polonijo - backend, scrum - pm, product owner ... alfa i omega  
-Marko Tomljanović - frontend, testing ... etc 
+Marko Tomljanović - frontend, testing ... etc  
+Kristijan Cetina - backend, system stuff and [I solve problems](https://www.youtube.com/watch?v=ZfwgmEn4oUc)
 
 ## Bugs & Feature request
 
