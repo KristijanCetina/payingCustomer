@@ -47,6 +47,7 @@
 
 
 <style lang="scss">
+@import './assets/iconsSM.css';
 body {
     background: linear-gradient(#f1f1f1, #f1f1f1);
 }

@@ -19,3 +19,13 @@
   </div> 
 </div>
 </template>
+
+
+<style scoped>
+ .btn{
+    transition: box-shadow 0.3s;
+  }
+.btn:hover{
+    box-shadow: 20px 20px 40px 0px #384F7B;
+  }
+</style>
