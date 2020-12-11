@@ -56,7 +56,7 @@ h1,p{
 }
 .blueLine {
     position: fixed;
-    top: 113px;
+    top: 0px;
     right: 59%;
     width: 100%;
     height: 100%;
