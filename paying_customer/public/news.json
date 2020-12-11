@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Kartica vjesti",
+        "tekst":"Uvijek kada upisemo novu vijest u news.json pokaže se ovdje nova kartica. Nalazi se u public folderu. Za dodavati vjesti treba napraviti funkciju koja kada dodamo u našem dashboardu dodaje/sprema vjest u .json file(ili sa bazom)",
+        "id": 1
+    },
+    {
+        "name": "Kartica br dva",
+        "tekst":"Isto tako kada brišemo da se iz news.json obriše te tako se i kartica automatski obriše. Ja sam tako zamislio, ako ste mislili drugacije javite.",
+        "id": 2
+    }
+]
