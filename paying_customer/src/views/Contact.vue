@@ -64,9 +64,9 @@
                         <div class="frontside">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="@/assets/male.jpg" alt="card image"></p>
+                                    <p><img class=" img-fluid" src="@/assets/kristijan.jpg" alt="card image"></p>
                                     <h4 class="card-title">Kristijan Cetina</h4>
-                                    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    <p class="card-text">Polytechnic engineer studying at Faculty of Informatics in Pula</p>
                                     <a href="" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
                             </div>
@@ -75,21 +75,21 @@
                             <div class="card">
                                 <div class="card-body text-center mt-4">
                                     <h4 class="card-title">Kristijan Cetina</h4>
-                                    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                    <p class="card-text">16+ years of experience in industry. Skilled in Autodesk Inventor, Customer Product Training, LaTeX and .NET Framework. Strong IT professional with a bachelor degree in engineering from Istarsko Veleučilište - Università Istriana di scienze applicate.</p>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="">
+                                            <a class="social-icon text-xs-center" target="_blank" href="https://www.facebook.com/KristijanCetina/">
                                                 <i class="fa fa-facebook"></i>
                                             </a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="">
+                                            <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/kristijan-cetina-382a5816/">
                                                 <i class="fa fa-linkedin"></i>
                                             </a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="">
-                                                <i class="fa fa-instagram"></i>
+                                            <a class="social-icon text-xs-center" target="_blank" href="https://kristijancetina.eu/">
+                                                <i class="fa fa-user"></i>
                                             </a>
                                         </li>
                                     </ul>
