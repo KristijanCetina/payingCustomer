@@ -16,6 +16,7 @@
       <div class="col"><h1>Make your paymants easier</h1><br><br>
       <p>We will ensure you get the best experience with Paying Customer</p><br>
         <button type="button" class="btn btn-lg position-absolute" style="margin-left: 22%; margin-top: 25%; background-color:#384F7B; color:#ffffff">GET START</button>
+        <router-link to="/signin">Registracija</router-link>
       </div>
       <div class="col-1"></div>       
     </div>
