@@ -1,7 +1,8 @@
 <template>
   <div>
     <div>
-      <b-navbar
+      <!-- da se ne vidi glavni navibar u autoriziranom dijelu -->
+      <b-navbar v-if="!['Subscription','MyPayments','Calendar_dash','News_dash','Users_admin','Subscription_admin','MyPayments_admin','Calendar_admin','News_admin'].includes($route.name)"   
         style="background-color: #f1f1f1; height: 113px"
         toggleable="lg"
       >
@@ -38,6 +39,9 @@
           >
         </b-collapse>
       </b-navbar>
+      <!-- da se ne vidi sidebar autoriziranog korisnika i admina-->
+      <authorizedNavi v-if="!['Home','AboutUs','Contact','Calendar','News','Users_admin','Subscription_admin','MyPayments_admin','Calendar_admin','News_admin','Plan','SignIn','Cancel','Login'].includes($route.name)"></authorizedNavi>
+      <adminNavi v-if="!['Home','AboutUs','Contact','Calendar','News','Subscription','MyPayments','Calendar_dash','News_dash','Plan','SignIn','Cancel','Login'].includes($route.name)"></adminNavi>
     </div>
     <!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> -->
@@ -46,12 +50,27 @@
 </template>
 
 
+
+<script>
+import authorized_navi from "@/components/authorized_navi.vue";
+import admin_navi from "@/components/admin_navi.vue";
+export default {
+  name: 'app',
+  components: {
+    "authorizedNavi": authorized_navi,
+    "adminNavi": admin_navi
+  }
+}
+</script>
+
+
+
 <style lang="scss">
 @import './assets/iconsSM.css';
 body {
     background: linear-gradient(#f1f1f1, #f1f1f1);
 }
-h1,p{
+h1,p,a{
   font-family: 'Roboto', sans-serif;
 }
 .blueLine {
