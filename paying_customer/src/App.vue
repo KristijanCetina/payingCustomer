@@ -103,8 +103,6 @@ h1,p,a{
 }
 .navbar-collapse ul li:hover a.nav-link:before {
   opacity: 1;
-  -ms-transform: translateY(0px);
-  -webkit-transform: translateY(0px);
   transform: translateY(0px);
   bottom: 0px;
   background: #0066cc;
