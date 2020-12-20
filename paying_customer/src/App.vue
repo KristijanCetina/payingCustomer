@@ -3,8 +3,7 @@
     <div>
       <!-- da se ne vidi glavni navibar u autoriziranom dijelu -->
       <b-navbar v-if="!['Subscription','MyPayments','Calendar_dash','News_dash','Users_admin','Subscription_admin','MyPayments_admin','Calendar_admin','News_admin'].includes($route.name)"   
-        style="background-color: #f1f1f1; height: 113px"
-        toggleable="lg"
+        toggleable="lg" class="naviStyle"
       >
         <b-navbar-brand to="/"
           ><img
@@ -18,7 +17,6 @@
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav
             class="mx-auto"
-            style="font-family: 'Roboto', sans-serif"
           >
             <b-nav-item to="/"><a style="color: #0066cc">HOME</a></b-nav-item>
             <b-nav-item to="/AboutUs"
@@ -73,6 +71,11 @@ body {
 h1,p,a{
   font-family: 'Roboto', sans-serif;
 }
+.naviStyle{
+  background-color: #f1f1f1;
+  height: 113px;
+  z-index: 1;
+}
 .blueLine {
     position: fixed;
     top: 0px;
@@ -106,5 +109,10 @@ h1,p,a{
   transform: translateY(0px);
   bottom: 0px;
   background: #0066cc;
+}
+@media (max-width: 575px){
+  .naviStyle{
+    background-color: #384F7B;
+     }   
 }
 </style>

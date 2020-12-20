@@ -25,8 +25,8 @@ export default {
 
 <style scoped>
 .kartica{
-    max-width: 100%; 
-    width: 650px; 
+    max-width: 680px; 
+    width: auto;
     margin-left: 6%; 
     border-color: #384F7B; 
     color: #384F7B;

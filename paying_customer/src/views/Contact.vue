@@ -2,7 +2,7 @@
  <div class="container-fluid">
      <div class="blueLine"></div>
   <div class="row">
-    <div class="col-xs-6 col-md-5"><br><br>
+    <div class="col-xs-6 col-md-5 imgH"><br><br>
       <img style="width: 400px; margin-left: 53px; border-radius: 83px" src="@/assets/logoPC.png" class="img-fluid" alt="Logo">
       <div style="margin-left: 33%; margin-top: 10px">
         <a href="#" class="mx auto fa fa-facebook"></a>&nbsp;
@@ -153,4 +153,17 @@
 
 <style lang="scss" scoped>
 @import './../assets/contactCard.scss';
+
+@media (max-width: 1150px){
+  .imgH { 
+  display: none; 
+  }
+  .blueLine { display: none; }   
+  .col-md-7{
+      margin: auto;
+      width: 80%;
+      padding-left: 0px;
+      padding-right: 0px;
+  }                                               
+}   
 </style>

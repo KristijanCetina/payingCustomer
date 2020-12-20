@@ -1,5 +1,6 @@
 <template>
-    <div><br><br><br><br>
+    <div>
+		<br>
         <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-3">
@@ -10,11 +11,9 @@
     <div class="row">
 		<div class="col-md-3">
 		</div>
-		<div class="col-md-9">PS. i ovo za sada super funkcionira. <p>Trebao bi napraviti jos gornji navibar za one ulogirane i LogOut (mogo bi u sklopu ove komponente)</p>
+		<div class="col-md-9">PS. i ovo za sada super funkcionira. <p>Trebao bi jos gornji navibar za one ulogirane</p>
 		</div>
 	</div>
-    
-	
     </div>
     </div>
 </template>
