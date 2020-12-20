@@ -1,4 +1,14 @@
 <template>
+<div>
+  <div>
+  <b-navbar toggleable="lg" class="naviStyle">
+      <b-navbar-nav class="ml-auto">
+        <b-button variant="outline" class="buttonStyle"
+            >LOG OUT</b-button>
+      </b-navbar-nav>
+      </b-navbar>
+  </div>
+
       <div id="mySidenav" class="sidenav" ><br>
           <p><img width="40px" src="./../assets/logoPC.png" alt="Logo" style="border-radius: 50px">
             Payng Customer</p><hr style="background-color:#c8cad8;"><br>
@@ -38,7 +48,8 @@
             </svg>
                 News</a></b-nav-item>
             </b-navbar-nav>
-        </div>     
+        </div>
+</div>     
 </template>
 
 
@@ -71,11 +82,31 @@
   color:  #27282C;
   background-color: #ffffff;
 }
+.buttonStyle{
+   width: 145px;
+   height: 85px; 
+   border-color: #27282C;
+   color: #27282C; 
+}
+.buttonStyle:hover{
+  background-color: #27282C;
+  color: #ffffff;
+}
 @media (max-width: 915px){
   .sidenav {
   width: 100%;
     height: auto;
     position: relative;
   }
+}
+.naviStyle{
+  background-color: #f1f1f1;
+  height: 113px;
+  z-index: 1;
+}
+.naviStyle{
+  background-color: #f1f1f1;
+  height: 113px;
+  z-index: 1;
 }
 </style>
