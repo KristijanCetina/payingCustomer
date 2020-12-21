@@ -15,7 +15,7 @@
 }
 @media (max-width: 750px){
   .limit{
-    top: 130px;
+    top: 190px;
     right: auto;
     width: auto;
     height: auto;

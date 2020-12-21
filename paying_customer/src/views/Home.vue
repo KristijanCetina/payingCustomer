@@ -3,9 +3,18 @@
     <div class="blueLine"></div> 
     <br><br><br>
     <div class="row">
-      <div class="col" style="color: #ffffff;">
+      <div class="col changeColor" style="color: #ffffff;">
         <h1 class="changeColor">Paying Customer</h1><br><br>
-        <p class="changeColor">The way you get started is to quit talking and begin doing. <br><br> Walt Disney</p><br><br><br><br><br>
+          <b-carousel id="carousel" indicators
+          style="margin-left: -65px; margin-right: -30px;">
+            <br><br><br><br><br><br>
+    <b-carousel-slide><p style="text-align: left;">The way you get started is to quit talking and begin doing.</p><p style="text-align: left;">Walt Disney</p></b-carousel-slide>
+    <b-carousel-slide><p style="text-align: left;">Insanity: doing the same thing over and over again and expecting different results.</p><p style="text-align: left;">Albert Einstein</p></b-carousel-slide>
+    <b-carousel-slide><p style="text-align: left;">The future belongs to those who prepare for it today.</p><p style="text-align: left;">Malcolm X </p></b-carousel-slide>
+    <b-carousel-slide><p style="text-align: left;">That’s one small step for a man, one giant leap for mankind.</p><p style="text-align: left;">Neil Armstrong</p></b-carousel-slide>
+    <b-carousel-slide><p style="text-align: left;">Education is the most powerful weapon which you can use to change the world.</p><p style="text-align: left;">Nelson Mandela</p></b-carousel-slide>
+  </b-carousel>
+  <br><br><br><br>
         <div class="marginSocialM" style="margin-left: 31%;">
         <a href="#" class="mx auto fa fa-facebook"></a>&nbsp;
         <a href="#" class="fa fa-linkedin"></a>&nbsp;
@@ -47,8 +56,9 @@
   .blueLine { display: none; }   
   .changeColor{
     color: #000000;
-    margin-top: -45px
+    margin-top: -25px
   }
+  p{ color: #000000; }
   .marginSocialM{
     margin-top:-120px;
     margin-top:-120px;
