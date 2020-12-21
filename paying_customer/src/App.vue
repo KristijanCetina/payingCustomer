@@ -122,9 +122,5 @@ h1,p,a{
   .navbar-dark .navbar-nav .nav-link{
       color: #ffffff!important
     }
-  .outline-primary {
-    color: #ffffff;
-    border-color: #ffffff
-}}
-    
+}
 </style>
