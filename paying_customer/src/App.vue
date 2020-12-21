@@ -32,8 +32,8 @@
               >NEWS</b-nav-item
             >
           </b-navbar-nav>
-          <b-button variant="outline-primary" style="width: 145px; height: 85px; font-size:17px"
-            >LOG IN</b-button
+          <b-button to="/Login" variant="outline-primary" style="width: 145px; height: 85px; font-size:17px;"
+            ><p style="margin-top: 22px">LOG IN</p></b-button
           >
         </b-collapse>
       </b-navbar>

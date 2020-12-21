@@ -28,10 +28,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="backside">
+                        <div class="backside" style="margin-top: -5px">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Ivana Polonijo</h4>
+                                    <h4 class="card-title" style="margin-top: -15px">Ivana Polonijo</h4>
                                     <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
@@ -72,9 +72,9 @@
                             </div>
                         </div>
                         <div class="backside">
-                            <div class="card">
+                            <div class="card" style="margin-top: -5px">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Kristijan Cetina</h4>
+                                    <h4 class="card-title" style="margin-top: -15px">Kristijan Cetina</h4>
                                     <p class="card-text">16+ years of experience in industry. Skilled in Autodesk Inventor, Customer Product Training, LaTeX and .NET Framework. Strong IT professional with a bachelor degree in engineering from Istarsko Veleučilište - Università Istriana di scienze applicate.</p>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
@@ -113,10 +113,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="backside">
+                        <div class="backside" style="margin-top: -5px">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Marko Tomljanović</h4>
+                                    <h4 class="card-title" style="margin-top: -15px">Marko Tomljanović</h4>
                                     <p class="card-text">Born in Požega, where he finished primary and high school. Then he enrolled in the Faculty of Electrical Engineering where he became bacc.ing.el. Finally, he enrolled as a graduate at the Faculty of Informatics in Pula</p>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">

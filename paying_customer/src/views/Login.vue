@@ -7,10 +7,10 @@
         <img
           style="width: 400px; margin-left: 53px; border-radius: 83px"
           src="@/assets/logoPC.png"
-          class="img-fluid"
+          class="img-fluid imgH"
           alt="Logo"
         />
-        <div style="margin-left: 27%; margin-top: 10px">
+        <div class="socialM" style="margin-left: 27%; margin-top: 10px">
           <a href="#" class="mx auto fa fa-facebook"></a>&nbsp;
           <a href="#" class="fa fa-linkedin"></a>&nbsp;
           <a href="#" class="fa fa-instagram"></a>
@@ -69,10 +69,10 @@
           </button>
         </form>
         <br />
-        <a href="url" > Don't have an account? Create new!</a>
+        <a href="" > Don't have an account? Create new!</a>
         <br />
         <br />
-        <a href="url" class="font-weight-bold">Admin login</a>
+        <a href="" class="font-weight-bold">Admin login</a>
       </div>
     </div>
   </div>
@@ -86,4 +86,10 @@
 .btn:hover {
   box-shadow: 20px 20px 40px 0px #384f7b;
 }
+@media (max-width: 991px){    /* za sakrivanje prilikom smanjvanja window-a */
+  .imgH { display: none; }
+  .blueLine { display: none; }
+  .socialM { display: none; }
+  .col-xs-6 { margin-top: -20px;}                                             
+}   
 </style>
