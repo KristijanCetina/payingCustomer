@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-5"><br><br>
       <img style="width: 400px; margin-left: 10%; border-radius: 83px" src="@/assets/logoPC.png" class="img-fluid imgH" alt="Logo">
-      <div class="socialM" style="margin-left: 33%; margin-top: 10px">
+      <div style="margin-left: 33%; margin-top: 10px">
         <a href="#" class="mx auto fa fa-facebook"></a>&nbsp;
         <a href="#" class="fa fa-linkedin"></a>&nbsp;
         <a href="#" class="fa fa-instagram"></a>
@@ -29,9 +29,9 @@
     box-shadow: 20px 20px 40px 0px #384F7B;
   }
 @media (max-width: 767px){    /* za sakrivanje prilikom smanjvanja window-a */
-  .imgH { display: none; }
-  .blueLine { display: none; }
-  .socialM { display: none; }
-  .col-md-5 { margin-top: -20px;}                                        
+  .imgH { 
+  display: none; 
+  }
+  .blueLine { display: none; }                                                  
 }   
 </style>

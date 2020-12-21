@@ -3,7 +3,7 @@
     <div>
       <!-- da se ne vidi glavni navibar u autoriziranom dijelu -->
       <b-navbar v-if="!['Subscription','MyPayments','Calendar_dash','News_dash','Users_admin','Subscription_admin','MyPayments_admin','Calendar_admin','News_admin'].includes($route.name)"   
-        toggleable="lg" class="naviStyle" type="dark"
+        toggleable="lg" class="naviStyle"
       >
         <b-navbar-brand to="/"
           ><img
@@ -18,21 +18,21 @@
           <b-navbar-nav
             class="mx-auto"
           >
-            <b-nav-item to="/">HOME</b-nav-item>
+            <b-nav-item to="/"><a style="color: #0066cc">HOME</a></b-nav-item>
             <b-nav-item to="/AboutUs"
-              >ABOUT US</b-nav-item
+              ><a style="color: #0066cc">ABOUT US</a></b-nav-item
             >
             <b-nav-item to="/Contact"
-              >CONTACT</b-nav-item
+              ><a style="color: #0066cc">CONTACT</a></b-nav-item
             >
             <b-nav-item to="/Calendar"
-              >CALENDAR</b-nav-item
+              ><a style="color: #0066cc">CALENDAR</a></b-nav-item
             >
             <b-nav-item to="/News"
-              >NEWS</b-nav-item
+              ><a style="color: #0066cc">NEWS</a></b-nav-item
             >
           </b-navbar-nav>
-          <b-button variant="outline-primary" style="width: 145px; height: 85px; font-size:17px"
+          <b-button variant="outline-primary" style="width: 145px; height: 85px"
             >LOG IN</b-button
           >
         </b-collapse>
@@ -71,10 +71,6 @@ body {
 h1,p,a{
   font-family: 'Roboto', sans-serif;
 }
-.navbar-dark .navbar-nav .nav-link{
-      color: #0066cc!important;
-      font-size: 21px!important
-    }
 .naviStyle{
   background-color: #f1f1f1;
   height: 113px;
@@ -94,6 +90,7 @@ h1,p,a{
 }
 .navbar-collapse ul li a.nav-link:before {
   position: absolute;
+  bottom: -5px;
   left: 0;
   width: 100%;
   height: 2px;
@@ -113,18 +110,9 @@ h1,p,a{
   bottom: 0px;
   background: #0066cc;
 }
-@media (max-width: 991px){
+@media (max-width: 575px){
   .naviStyle{
     background-color: #384F7B;
-    height:auto;
-    }
-  .naviText{ color: #ffffff;}
-  .navbar-dark .navbar-nav .nav-link{
-      color: #ffffff!important
-    }
-  .outline-primary {
-    color: #ffffff;
-    border-color: #ffffff
-}}
-    
+     }   
+}
 </style>

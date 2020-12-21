@@ -47,11 +47,9 @@
   .blueLine { display: none; }   
   .changeColor{
     color: #000000;
-    margin-top: -45px
   }
   .marginSocialM{
-    margin-top:-120px;
-    margin-bottom: 20px;
+    margin-top:-100px;
   }
  .marginButton{
     margin-left: 38%;

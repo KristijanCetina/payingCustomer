@@ -12,7 +12,7 @@
       </div>
     <div class="col-xs-6 col-md-7">
     <div class="container">
-        <h1 class="centerTitle" style="color: #384F7B">TEAM MEMBERS</h1><br>
+        <h1 style="color: #384F7B">TEAM MEMBERS</h1><br>
         <div class="row">
             <!-- Team member -->
              <div class="col-xs-12 col-sm-6 col-md-4">
@@ -155,9 +155,10 @@
 @import './../assets/contactCard.scss';
 
 @media (max-width: 1150px){
-  .imgH { display: none; }
-  .blueLine { display: none; } 
-  .centerTitle {margin-top: 20px;}  
+  .imgH { 
+  display: none; 
+  }
+  .blueLine { display: none; }   
   .col-md-7{
       margin: auto;
       width: 80%;

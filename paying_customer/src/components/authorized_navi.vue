@@ -3,7 +3,7 @@
   <div>
   <b-navbar toggleable="lg" class="naviStyle">
       <b-navbar-nav class="ml-auto">
-        <b-button variant="outline-primary" style="width: 145px; height: 85px; font-size:17px"
+        <b-button variant="outline-primary" style="width: 145px; height: 85px"
             >LOG OUT</b-button>
       </b-navbar-nav>
       </b-navbar>
