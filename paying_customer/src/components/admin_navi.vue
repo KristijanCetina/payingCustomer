@@ -86,7 +86,8 @@
    width: 145px;
    height: 85px; 
    border-color: #27282C;
-   color: #27282C; 
+   color: #27282C;
+   font-size:17px
 }
 .buttonStyle:hover{
   background-color: #27282C;

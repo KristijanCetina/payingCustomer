@@ -11,9 +11,10 @@
         <a href="#" class="fa fa-instagram"></a>
         </div>
     </div>
-    <div class="col-7"><h1 style="color: #384F7B">NEWS</h1><br>
+    <div class="col-sm">
+      <h1 style="color: #384F7B;">NEWS</h1><br>
     <div class="row">
-      <newsCard v-for="news in news" :key="news.id" :name="news.name" :tekst="news.tekst"></newsCard>        
+      <newsCard class="alignCard" v-for="news in news" :key="news.id" :name="news.name" :tekst="news.tekst"></newsCard>       
       </div>
     </div>
   </div>
@@ -36,7 +37,6 @@ export default {
   data(){
     return {
       news: []
-
     };
   },
   methods:{
@@ -45,7 +45,6 @@ export default {
       const val = await res.json();
       this.news = val; 
       console.log(val);
-
     }
   }
 };
@@ -55,12 +54,9 @@ export default {
 
 <style scoped>
 @media (max-width: 1000px){
-  .imgH { 
-  display: none; 
-  }
-  .blueLine { display: none; }   
-  .col-7{
-    margin:auto;
-  }                                     
-}                                              
+  .imgH { display: none; }
+  .blueLine { display: none; }
+  .alignCard{ margin: auto;}
+  h1{ margin-top: 15px; }                    
+}                                            
 </style>

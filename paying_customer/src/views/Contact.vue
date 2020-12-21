@@ -12,7 +12,7 @@
       </div>
     <div class="col-xs-6 col-md-7">
     <div class="container">
-        <h1 style="color: #384F7B">TEAM MEMBERS</h1><br>
+        <h1 class="centerTitle" style="color: #384F7B">TEAM MEMBERS</h1><br>
         <div class="row">
             <!-- Team member -->
              <div class="col-xs-12 col-sm-6 col-md-4">
@@ -108,7 +108,7 @@
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="@/assets/mt.jpeg" alt="card image"></p>
                                     <h4 class="card-title">Marko Tomljanović</h4>
-                                    <p class="card-text">Front-end web developer Student at the Faculty of Informatics in Pula </p>
+                                    <p class="card-text">Student at the Faculty of Informatics in Pula</p>
                                     <a href="" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
                             </div>
@@ -117,7 +117,7 @@
                             <div class="card">
                                 <div class="card-body text-center mt-4">
                                     <h4 class="card-title">Marko Tomljanović</h4>
-                                    <p class="card-text">Born in Požega, where he finished primary and high school. He then enrolled in the Faculty of Electrical Engineering where he became bacc.ing.el. Finally, he enrolled as a graduate at the Faculty of Informatics in Pula</p>
+                                    <p class="card-text">Born in Požega, where he finished primary and high school. Then he enrolled in the Faculty of Electrical Engineering where he became bacc.ing.el. Finally, he enrolled as a graduate at the Faculty of Informatics in Pula</p>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="https://www.facebook.com/cubus1/">
@@ -155,10 +155,9 @@
 @import './../assets/contactCard.scss';
 
 @media (max-width: 1150px){
-  .imgH { 
-  display: none; 
-  }
-  .blueLine { display: none; }   
+  .imgH { display: none; }
+  .blueLine { display: none; } 
+  .centerTitle {margin-top: 20px;}  
   .col-md-7{
       margin: auto;
       width: 80%;
