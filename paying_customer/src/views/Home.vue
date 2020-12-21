@@ -13,7 +13,7 @@
         </div>
         </div>
       <div class="col-sm"><img class="imgH" style="width: 400px; border-radius: 83px" src="@/assets/logoPC.png" alt="Logo"></div>
-      <div class="col"><h1>Make your paymants easier</h1><br><br>
+      <div class="col"><h1>Make your payments easier</h1><br><br>
       <p>We will ensure you get the best experience with Paying Customer</p><br>
         <button type="button" class="btn btn-lg position-absolute marginButton">GET START</button>
         <router-link to="/signin">Registracija</router-link>
@@ -47,9 +47,12 @@
   .blueLine { display: none; }   
   .changeColor{
     color: #000000;
+    margin-top: -45px
   }
   .marginSocialM{
-    margin-top:-100px;
+    margin-top:-120px;
+    margin-top:-120px;
+    margin-bottom: 20px;
   }
  .marginButton{
     margin-left: 38%;
