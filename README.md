@@ -40,7 +40,9 @@ Class diagram can be found [HERE](https://lucid.app/lucidchart/6a0ba745-34a0-418
 Figma prototype can be found [HERE](https://www.figma.com/file/tFehKiuboUjI9VEC96cR2S/PIIIP-Prototype?node-id=0%3A1)
 
 ### Zaduženja (planirana) po članu tima 
-Ivana Polonijo - backend, scrum - pm, product owner ... alfa i omega 
+Ivana Polonijo - backend, scrum - pm, product owner ... alfa i omega  
+Marko Tomljanović - frontend, testing ... etc  
+Kristijan Cetina - backend, system stuff and [I solve problems](https://www.youtube.com/watch?v=NP4lrVIpbvo)
 
 ## Bugs & Feature request
 
