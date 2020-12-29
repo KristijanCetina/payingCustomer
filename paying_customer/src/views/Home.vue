@@ -65,7 +65,7 @@
         <br /><br />
         <p>We will ensure you get the best experience with Paying Customer</p>
         <br />
-        <a href="signin" class="btn btn-lg position-absolute marginButton"
+        <a href="options" class="btn btn-lg position-absolute marginButton"
           >GET STARTED</a
         >
       </div>
