@@ -32,9 +32,16 @@
               >NEWS</b-nav-item
             >
           </b-navbar-nav>
-          <b-button to="/Login" variant="outline-primary" style="width: 145px; height: 85px; font-size:17px;"
-            ><p style="margin-top: 22px">LOG IN</p></b-button
-          >
+
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link" href="login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="signin">Sign In</a>
+            </li>
+          </ul>
+
         </b-collapse>
       </b-navbar>
       <!-- da se ne vidi sidebar autoriziranog korisnika i admina-->
