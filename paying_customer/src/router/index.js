@@ -37,7 +37,7 @@ const routes = [
   },
   {
     path: '/admin-login',
-    name: 'Admin',
+    name: 'AdminLogin',
     component: () => import('../views/AdminLogin.vue')
   },
   {
@@ -74,6 +74,16 @@ const routes = [
     path: '/signin',
     name: 'SignIn',
     component: SignIn
+  },
+  {
+    path: '/forgot-password',
+    name: 'ForgotPassword',
+    component: () => import('../views/ForgotPassword.vue')
+  },
+  {
+    path: '/options',
+    name: 'Options',
+    component: () => import('../views/Options.vue')
   },
   {
     path: '/subscription',

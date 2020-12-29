@@ -56,7 +56,7 @@
             </div>
             <div class="col">
               <!-- //treba sloziti nesto  -->
-              <a href="url">Forgot password</a>
+              <a href="forgot-password">Forgot password</a>
             </div>
           </div>
           <br />
