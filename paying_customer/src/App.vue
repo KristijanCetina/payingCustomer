@@ -33,9 +33,14 @@
               ><a style="color: #0066cc">NEWS</a></b-nav-item
             >
           </b-navbar-nav>
-          <b-button variant="outline-primary" style="width: 145px; height: 85px"
-            >LOG IN</b-button
-          >
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link" href="login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="signin">Sign In</a>
+            </li>
+          </ul>
         </b-collapse>
       </b-navbar>
     </div>
