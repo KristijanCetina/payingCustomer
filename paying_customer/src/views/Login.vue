@@ -56,7 +56,7 @@
             </div>
             <div class="col">
               <!-- //treba sloziti nesto  -->
-              <a href="url">Forgot password</a>
+              <a href="forgot-password">Forgot password</a>
             </div>
           </div>
           <br />
@@ -69,10 +69,10 @@
           </button>
         </form>
         <br />
-        <a href="" > Don't have an account? Create new!</a>
+        <a href="signin" > Don't have an account? Create new!</a>
         <br />
         <br />
-        <a href="" class="font-weight-bold">Admin login</a>
+        <a href="admin-login" class="font-weight-bold">Admin login</a>
       </div>
     </div>
   </div>

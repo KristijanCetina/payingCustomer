@@ -45,8 +45,8 @@
         </b-collapse>
       </b-navbar>
       <!-- da se ne vidi sidebar autoriziranog korisnika i admina-->
-      <authorizedNavi v-if="!['Home','AboutUs','Contact','Calendar','News','Users_admin','Subscription_admin','MyPayments_admin','Calendar_admin','News_admin','Plan','SignIn','Cancel','Login'].includes($route.name)"></authorizedNavi>
-      <adminNavi v-if="!['Home','AboutUs','Contact','Calendar','News','Subscription','MyPayments','Calendar_dash','News_dash','Plan','SignIn','Cancel','Login'].includes($route.name)"></adminNavi>
+      <authorizedNavi v-if="!['Home','AboutUs','Contact','Calendar','News','Users_admin','Subscription_admin','MyPayments_admin','Calendar_admin','News_admin','Plan','SignIn','Cancel','Login', 'AdminLogin', 'ForgotPassword', 'Options'].includes($route.name)"></authorizedNavi>
+      <adminNavi v-if="!['Home','AboutUs','Contact','Calendar','News','Subscription','MyPayments','Calendar_dash','News_dash','Plan','SignIn','Cancel','Login', 'AdminLogin', 'ForgotPassword', 'Options'].includes($route.name)"></adminNavi>
     </div>
     <!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> -->
