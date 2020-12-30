@@ -54,7 +54,7 @@
 				</b-collapse>
 			</b-navbar>
 			<!-- da se ne vidi sidebar autoriziranog korisnika i admina-->
-			<authorizedNavi
+			<!-- <authorizedNavi
 				v-if="
 					![
 						'Home',
@@ -76,7 +76,7 @@
 						'Options',
 					].includes($route.name)
 				"
-			></authorizedNavi>
+			></authorizedNavi> -->
 			<adminNavi
 				v-if="
 					![
@@ -106,10 +106,8 @@
 	</div>
 </template>
 
-
-
 <script>
-import authorized_navi from "@/components/authorized_navi.vue";
+// import authorized_navi from "@/components/authorized_navi.vue";
 import admin_navi from "@/components/admin_navi.vue";
 import store from "@/store";
 import { firebase } from "@/firebase";
@@ -138,7 +136,7 @@ firebase.auth().onAuthStateChanged((user) => {
 export default {
   name: "app",
   components: {
-		authorizedNavi: authorized_navi,
+		// authorizedNavi: authorized_navi,
 		adminNavi: admin_navi,
 	},
 	data() {
