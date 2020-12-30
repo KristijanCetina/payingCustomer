@@ -35,11 +35,13 @@
 
           <ul class="nav nav-pills">
             <li class="nav-item">
-              <a class="nav-link" href="login">Login</a>
-            </li>
+              <b-nav-item to="/login"
+              >Log In</b-nav-item
+            ></li>
             <li class="nav-item">
-              <a class="nav-link " href="signin">Sign In</a>
-            </li>
+              <b-nav-item to="/Signin"
+              >Sign In</b-nav-item
+            ></li>
           </ul>
 
         </b-collapse>

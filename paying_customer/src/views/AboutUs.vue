@@ -14,7 +14,8 @@
     <p style="text-align: justify;">
      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ornare sem rutrum vestibulum accumsan. Fusce nec condimentum nulla. Cras cursus tristique lorem vitae vehicula. Phasellus bibendum tortor eget odio maximus, vel efficitur justo malesuada. Aenean a suscipit quam, quis pellentesque dui. Sed ac vehicula magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin lobortis metus eu risus viverra, accumsan blandit turpis semper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam erat volutpat.
     </p><br><br>
-    <button type="button" class="btn btn-lg position-absolute" style="margin-left: 29%; background-color:#384F7B; color:#ffffff">CHOOSE PLAN</button>
+    <b-button to="/options" type="button" class="btn btn-lg position-absolute" style="margin-left: 29%; background-color:#384F7B; color:#ffffff">
+      CHOOSE PLAN</b-button>
     </div>     
   </div> 
 </div>

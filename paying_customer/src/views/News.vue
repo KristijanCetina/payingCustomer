@@ -14,7 +14,7 @@
     <div class="col-sm">
       <h1 style="color: #384F7B;">NEWS</h1><br>
     <div class="row">
-      <newsCard class="alignCard" v-for="news in news" :key="news.id" :name="news.name" :tekst="news.tekst"></newsCard>       
+      <newsCard class="alignCard" v-for="news in news" :key="news.id" :name="news.name" :tekst="news.tekst" :date="news.date"></newsCard>       
       </div>
     </div>
   </div>
