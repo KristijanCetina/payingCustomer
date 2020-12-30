@@ -1,59 +1,109 @@
 <template>
-  <div>
-    <div>
-      <!-- da se ne vidi glavni navibar u autoriziranom dijelu -->
-      <b-navbar v-if="!['Subscription','MyPayments','Calendar_dash','News_dash','Users_admin','Subscription_admin','MyPayments_admin','Calendar_admin','News_admin'].includes($route.name)"   
-       toggleable="lg" class="naviStyle" type="dark"
-      >
-        <b-navbar-brand to="/"
-          ><img
-            margin-left="30%"
-            height="113px"
-            width="113px"
-            src="@/assets/logo_transparent.png"
-            alt="Logo"
-        /></b-navbar-brand>
-        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-        <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav
-            class="mx-auto"
-          >
-            <b-nav-item to="/">HOME</b-nav-item>
-            <b-nav-item to="/AboutUs"
-              >ABOUT US</b-nav-item
-            >
-            <b-nav-item to="/Contact"
-              >CONTACT</b-nav-item
-            >
-            <b-nav-item to="/Calendar"
-              >CALENDAR</b-nav-item
-            >
-            <b-nav-item to="/News"
-              >NEWS</b-nav-item
-            >
-          </b-navbar-nav>
+	<div>
+		<div>
+			<!-- da se ne vidi glavni navibar u autoriziranom dijelu -->
+			<b-navbar
+				v-if="
+					![
+						'Subscription',
+						'MyPayments',
+						'Calendar_dash',
+						'News_dash',
+						'Users_admin',
+						'Subscription_admin',
+						'MyPayments_admin',
+						'Calendar_admin',
+						'News_admin',
+					].includes($route.name)
+				"
+				toggleable="lg"
+				class="naviStyle"
+				type="dark"
+			>
+				<b-navbar-brand to="/"
+					><img
+						margin-left="30%"
+						height="113px"
+						width="113px"
+						src="@/assets/logo_transparent.png"
+						alt="Logo"
+				/></b-navbar-brand>
+				<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+				<b-collapse id="nav-collapse" is-nav>
+					<b-navbar-nav class="mx-auto">
+						<b-nav-item to="/">HOME</b-nav-item>
+						<b-nav-item to="/AboutUs">ABOUT US</b-nav-item>
+						<b-nav-item to="/Contact">CONTACT</b-nav-item>
+						<b-nav-item to="/Calendar">CALENDAR</b-nav-item>
+						<b-nav-item to="/News">NEWS</b-nav-item>
+					</b-navbar-nav>
 
-          <ul class="nav nav-pills">
-            <li class="nav-item">
-              <b-nav-item to="/login"
-              >Log In</b-nav-item
-            ></li>
-            <li class="nav-item">
-              <b-nav-item to="/Signin"
-              >Sign In</b-nav-item
-            ></li>
-          </ul>
-
-        </b-collapse>
-      </b-navbar>
-      <!-- da se ne vidi sidebar autoriziranog korisnika i admina-->
-      <authorizedNavi v-if="!['Home','AboutUs','Contact','Calendar','News','Users_admin','Subscription_admin','MyPayments_admin','Calendar_admin','News_admin','Plan','SignIn','Cancel','Login', 'AdminLogin', 'ForgotPassword', 'Options'].includes($route.name)"></authorizedNavi>
-      <adminNavi v-if="!['Home','AboutUs','Contact','Calendar','News','Subscription','MyPayments','Calendar_dash','News_dash','Plan','SignIn','Cancel','Login', 'AdminLogin', 'ForgotPassword', 'Options'].includes($route.name)"></adminNavi>
-    </div>
-    <!-- <router-link to="/">Home</router-link> |
+					<ul class="nav nav-pills">
+						<li v-if="!store.currentUser" class="nav-item">
+							<router-link to="/login">Login</router-link>
+						</li>
+						<li v-if="!store.currentUser" class="nav-item">
+							<router-link to="/signin">Sign in</router-link>
+						</li>
+						<li v-if="store.currentUser" class="nav-item">
+							<a style="color: gray" href="#" @click.prevent="logout()"
+								>Logout</a
+							>
+						</li>
+					</ul>
+				</b-collapse>
+			</b-navbar>
+			<!-- da se ne vidi sidebar autoriziranog korisnika i admina-->
+			<authorizedNavi
+				v-if="
+					![
+						'Home',
+						'AboutUs',
+						'Contact',
+						'Calendar',
+						'News',
+						'Users_admin',
+						'Subscription_admin',
+						'MyPayments_admin',
+						'Calendar_admin',
+						'News_admin',
+						'Plan',
+						'Signin',
+						'Cancel',
+						'Login',
+						'AdminLogin',
+						'ForgotPassword',
+						'Options',
+					].includes($route.name)
+				"
+			></authorizedNavi>
+			<adminNavi
+				v-if="
+					![
+						'Home',
+						'AboutUs',
+						'Contact',
+						'Calendar',
+						'News',
+						'Subscription',
+						'MyPayments',
+						'Calendar_dash',
+						'News_dash',
+						'Plan',
+						'Signin',
+						'Cancel',
+						'Login',
+						'AdminLogin',
+						'ForgotPassword',
+						'Options',
+					].includes($route.name)
+				"
+			></adminNavi>
+		</div>
+		<!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> -->
-    <router-view /><br />
-  </div>
+		<router-view /><br />
+	</div>
 </template>
 
 
@@ -61,75 +111,118 @@
 <script>
 import authorized_navi from "@/components/authorized_navi.vue";
 import admin_navi from "@/components/admin_navi.vue";
+import store from "@/store";
+import { firebase } from "@/firebase";
+import router from "@/router";
+
+firebase.auth().onAuthStateChanged((user) => {
+	if (user) {
+		// User is signed in.
+		store.currentUser = user.email;
+		console.log("emailVerified:" + user.emailVerified)
+		if (user.displayName) {
+			store.userDisplayName = user.displayName;
+		} else {
+			store.userDisplayName = user.email;
+		}
+	} else {
+		// No user is signed in.
+		store.currentUser = null;
+
+		if (router.name != "Login") {
+			router.push({ name: "Login" });
+		}
+	}
+});
+
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    "authorizedNavi": authorized_navi,
-    "adminNavi": admin_navi
-  }
-}
+		authorizedNavi: authorized_navi,
+		adminNavi: admin_navi,
+	},
+	data() {
+		return {
+			store,
+		};
+	},
+	methods: {
+		logout() {
+			firebase
+				.auth()
+				.signOut()
+				.then(() => {
+					this.$router.push({ name: "Login" });
+				});
+		},
+	},
+};
 </script>
 
 
 
 <style lang="scss">
-@import './assets/iconsSM.css';
+@import "./assets/iconsSM.css";
 body {
-    background: linear-gradient(#f1f1f1, #f1f1f1);
+	background: linear-gradient(#f1f1f1, #f1f1f1);
 }
-h1,p,a{
-  font-family: 'Roboto', sans-serif;
+h1,
+p,
+a {
+	font-family: "Roboto", sans-serif;
 }
-.navbar-dark .navbar-nav .nav-link{
-      color: #0066cc!important;
-      font-size: 21px!important
-    }
-.naviStyle{
-  background-color: #f1f1f1;
-  height: 113px;
-  z-index: 1;
+.navbar-dark .navbar-nav .nav-link {
+	color: #0066cc !important;
+	font-size: 21px !important;
+}
+.naviStyle {
+	background-color: #f1f1f1;
+	height: 113px;
+	z-index: 1;
 }
 .blueLine {
-    position: fixed;
-    top: 0px;
-    right: 59%;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: #384F7B;
+	position: fixed;
+	top: 0px;
+	right: 59%;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background: #384f7b;
 }
 .nav-item {
-  position: relative;
+	position: relative;
 }
 .navbar-collapse ul li a.nav-link:before {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: transparent;
-  content: "";
-  opacity: 0;
-  -ms-transition: opacity 0.3s, -webkit-transform 0.3s;
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s;
-  -ms-transform: translateY(10px);
-  -webkit-transform: translateY(10px);
-  transform: translateY(10px);
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: transparent;
+	content: "";
+	opacity: 0;
+	-ms-transition: opacity 0.3s, -webkit-transform 0.3s;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+	-ms-transform: translateY(10px);
+	-webkit-transform: translateY(10px);
+	transform: translateY(10px);
 }
 .navbar-collapse ul li:hover a.nav-link:before {
-  opacity: 1;
-  transform: translateY(0px);
-  bottom: 0px;
-  background: #0066cc;
+	opacity: 1;
+	transform: translateY(0px);
+	bottom: 0px;
+	background: #0066cc;
 }
-@media (max-width: 991px){
-  .naviStyle{
-    background-color: #384F7B;
-    height:auto;
-    }
-  .naviText{ color: #ffffff;}
-  .navbar-dark .navbar-nav .nav-link{
-      color: #ffffff!important
-    }
+@media (max-width: 991px) {
+	.naviStyle {
+		background-color: #384f7b;
+		height: auto;
+	}
+	.naviText {
+		color: #ffffff;
+	}
+	.navbar-dark .navbar-nav .nav-link {
+		color: #ffffff !important;
+	}
 }
 </style>

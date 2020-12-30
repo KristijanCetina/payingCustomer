@@ -52,7 +52,7 @@
 							placeholder="Enter Password"
 						/>
 					</div>
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<label for="Re-Password">Repeat Password</label>
 						<input
 							v-model="repeatedPassword"
@@ -61,7 +61,7 @@
 							id="Re-Password"
 							placeholder="Enter your password once again"
 						/>
-					</div>
+					</div> -->
 					<div class="form-check">
 						<input
 							class="form-check-input"
@@ -69,24 +69,25 @@
 							name="TermsAndConditionsCheckbox"
 							id="TermsAndConditionsCheckbox1"
 							value="option1"
-              :disabled="validated == 1"
+							:disabled="validated == 1"
 						/>
 						<label class="form-check-label" for="TermsAndConditionsCheckbox1">
 							I have read and accept the terms and conditions
 						</label>
 					</div>
 					<br />
-					<button 
+					<button
 						type="button"
-            @click="signup()"
+						@click="signup()"
 						class="btn btn-primary btn-lg btn-block"
 					>
 						Sign In
 					</button>
 					<br />
-					<button type="button" class="btn btn-secondary btn-lg btn-block">
+					<!-- Google već zna podatke pa ne treba raditi posebnu registraiju nego se moze direktno logirati -->
+					<!-- <button type="button" class="btn btn-secondary btn-lg btn-block">
 						Ovo ce biti GOOGLE
-					</button>
+					</button> -->
 				</form>
 			</div>
 		</div>
@@ -113,7 +114,6 @@ export default {
 			fullName: "",
 			email: "",
 			password: "",
-			repeatedPassword: "",
 		};
 	},
 	methods: {
@@ -125,16 +125,43 @@ export default {
 					console.log("Uspješna registracija");
 				})
 				.then(() => {
+					firebase
+						.auth()
+						.currentUser.updateProfile({ displayName: this.fullName });
+					this.verifyEmail();
+				})
+				.then(() => {
 					this.fullName = "";
 					this.email = "";
 					this.password = "";
-					this.repeatedPassword = "";
+					firebase
+						.auth()
+						.signOut()
+						.then(() => {
+							alert(
+								"Potrebno je verificirati e-mail prije korištenja aplikacije pomoću poslanog linka."
+							);
+							this.$router.push({ name: "Login" });
+						});
 				})
 				.catch(function (error) {
 					console.error("Došlo je do greške: ", error);
 					if (error.message) {
 						alert(error.message);
 					}
+				});
+		},
+		verifyEmail() {
+			firebase
+				.auth()
+				.currentUser.sendEmailVerification()
+				.then(function () {
+					// Verification email sent.
+					console.log("Verification email sent");
+				})
+				.catch(function (error) {
+					// Error occurred. Inspect error.code.
+					console.error("verifyError " + error);
 				});
 		},
 	},
