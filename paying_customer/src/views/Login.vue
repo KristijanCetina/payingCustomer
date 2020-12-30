@@ -76,7 +76,7 @@
 					</button>
 				</form>
 				<br />
-				Don't have an account? <a href="signin">  Create new!</a>
+				Don't have an account? <a href="signup">  Create new!</a>
 				<div>
 					<!-- //treba sloziti nesto  -->
 					<a href="forgot-password">Forgot password?</a>
