@@ -47,7 +47,7 @@
 							<router-link to="/login">Login</router-link>
 						</li>
 						<li v-if="!store.currentUser" class="nav-item">
-							<router-link to="/signin">Sign in</router-link>
+							<router-link to="/signup">Sign up</router-link>
 						</li>
 						<li v-if="store.currentUser" class="nav-item">
 							<a style="color: gray" href="#" @click.prevent="logout()"
