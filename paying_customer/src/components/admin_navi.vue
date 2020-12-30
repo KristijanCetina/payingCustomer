@@ -11,7 +11,7 @@
 
       <div id="mySidenav" class="sidenav" ><br>
           <p><img width="40px" src="./../assets/logoPC.png" alt="Logo" style="border-radius: 50px">
-            Payng Customer</p><hr style="background-color:#c8cad8;"><br>
+            Paying Customer</p><hr style="background-color:#c8cad8;"><br>
        
             <b-navbar-nav vertical>
               <b-nav-item to="/Users_admin" active @click="hide"><a>
@@ -99,11 +99,6 @@
     height: auto;
     position: relative;
   }
-}
-.naviStyle{
-  background-color: #f1f1f1;
-  height: 113px;
-  z-index: 1;
 }
 .naviStyle{
   background-color: #f1f1f1;

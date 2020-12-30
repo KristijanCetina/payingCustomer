@@ -2,9 +2,11 @@
 <div>     
     <b-col>
       <b-card
-    :title="name"
+    :title="name"    
     tag="news"
     class="mb-3 kartica"
+    :header="date"
+    header-class="header"
   >
         <b-text-card 
         v-text="tekst"
@@ -18,7 +20,7 @@
 
 <script>
 export default {
-  props: ["name", "tekst"]
+  props: ["name", "tekst", "date"]
 }
 </script>
 
@@ -30,5 +32,12 @@ export default {
     margin-left: 6%; 
     border-color: #384F7B; 
     color: #384F7B;
+}
+.header{
+  margin-bottom: -14px;
+  text-align: right;
+  line-height: 2px;
+  background: linear-gradient(0.25turn, #384F7B, #8c9cb9, #384F7B);
+  color: #ffffff;
 }
 </style>

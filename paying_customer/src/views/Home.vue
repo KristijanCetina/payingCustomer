@@ -27,9 +27,9 @@
           >
           <b-carousel-slide
             ><p style="text-align: left;">
-              The future belongs to those who prepare for it today.
+              Vision without execution is just hallucination.
             </p>
-            <p style="text-align: left;">Malcolm X</p></b-carousel-slide
+            <p style="text-align: left;">Henry Ford X</p></b-carousel-slide
           >
           <b-carousel-slide
             ><p style="text-align: left;">
@@ -65,9 +65,8 @@
         <br /><br />
         <p>We will ensure you get the best experience with Paying Customer</p>
         <br />
-        <a href="options" class="btn btn-lg position-absolute marginButton"
-          >GET STARTED</a
-        >
+        <b-button to="/options" type="button" class="btn btn-lg position-absolute marginButton" style="background-color:#384F7B">
+          GET STARTED</b-button>
       </div>
       <div class="col-1"></div>
     </div>
@@ -84,8 +83,6 @@
 .marginButton {
   margin-left: 22%;
   margin-top: 25%;
-  background-color: #384f7b;
-  color: #ffffff;
 }
 @media (max-width: 1070px) {
   /* za sakrivanje prilikom smanjvanja window-a */
