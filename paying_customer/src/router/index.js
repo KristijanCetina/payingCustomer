@@ -8,7 +8,7 @@ import News from '../views/News.vue'
 import Cancel from '../views/Cancel.vue'
 import Login from '../views/Login.vue'
 import Plan from '../views/Plan.vue'
-//import Signin from '../views/Signin.vue'
+import Signin from '../views/Signin.vue'
 import Subscription from '../views/Subscription.vue'
 import MyPayments from '../views/MyPayments.vue'
 import Calendar_dash from '../views/Calendar_dash.vue'
@@ -73,7 +73,7 @@ const routes = [
   {
     path: '/signin',
     name: 'Signin',
-    //component: Signin
+    component: Signin
   },
   {
     path: '/forgot-password',

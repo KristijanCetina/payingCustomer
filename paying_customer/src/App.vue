@@ -39,6 +39,10 @@
 					</b-navbar-nav>
 
 					<ul class="nav nav-pills">
+					<li v-if="store.currentUser" class="nav-item">
+						<p>Hello {{ store.userDisplayName }}</p>
+					</li>
+            
 						<li v-if="!store.currentUser" class="nav-item">
 							<router-link to="/login">Login</router-link>
 						</li>
@@ -47,8 +51,7 @@
 						</li>
 						<li v-if="store.currentUser" class="nav-item">
 							<a style="color: gray" href="#" @click.prevent="logout()"
-								>Logout</a
-							>
+								>Logout</a>
 						</li>
 					</ul>
 				</b-collapse>
@@ -77,7 +80,7 @@
 					].includes($route.name)
 				"
 			></authorizedNavi> -->
-			<adminNavi
+			<!-- <adminNavi
 				v-if="
 					![
 						'Home',
@@ -98,7 +101,7 @@
 						'Options',
 					].includes($route.name)
 				"
-			></adminNavi>
+			></adminNavi> -->
 		</div>
 		<!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> -->
@@ -108,7 +111,7 @@
 
 <script>
 // import authorized_navi from "@/components/authorized_navi.vue";
-import admin_navi from "@/components/admin_navi.vue";
+//import admin_navi from "@/components/admin_navi.vue";
 import store from "@/store";
 import { firebase } from "@/firebase";
 import router from "@/router";
@@ -117,7 +120,7 @@ firebase.auth().onAuthStateChanged((user) => {
 	if (user) {
 		// User is signed in.
 		store.currentUser = user.email;
-		console.log("emailVerified:" + user.emailVerified)
+		console.log("emailVerified:" + user.emailVerified);
 		if (user.displayName) {
 			store.userDisplayName = user.displayName;
 		} else {
@@ -134,11 +137,11 @@ firebase.auth().onAuthStateChanged((user) => {
 });
 
 export default {
-  name: "app",
-  components: {
-		// authorizedNavi: authorized_navi,
-		adminNavi: admin_navi,
-	},
+	name: "app",
+	// components: {
+	// 	// authorizedNavi: authorized_navi,
+	// 	adminNavi: admin_navi,
+	// },
 	data() {
 		return {
 			store,
