@@ -66,12 +66,11 @@
             <input
               class="form-check-input"
               type="checkbox"
-              name="TermsAndConditionsCheckbox"
-              id="TermsAndConditionsCheckbox1"
-              value="option1"
-              :disabled="validated == 1"
+              name="TermsCheck"
+              id="TermsCheck"
+              v-model="TermsCheck"
             />
-            <label class="form-check-label" for="TermsAndConditionsCheckbox1">
+            <label class="form-check-label" for="TermsCheck">
               I have read and accept the terms and conditions
             </label>
           </div>
@@ -113,12 +112,18 @@ export default {
       email: "",
       password: "",
       repeatedPassword: "",
+      TermsCheck:{
+        accept: true
+      },
     };
   },
   methods: {
     signup() {
       if (this.password != this.repeatedPassword) {
         alert("The password does not match!");
+      }
+       if (this.TermsCheck == false) {
+        alert("You have to accept Terms of service!")
       } else {
         firebase
 				.auth()
