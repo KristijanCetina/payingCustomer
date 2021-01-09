@@ -61,10 +61,6 @@ const routes = [
     path: '/cancel',
     name: 'Cancel',
     component: Cancel,
-    meta: {
-      needsUser: true,
-    },
-
   },
   {
     path: '/login',
