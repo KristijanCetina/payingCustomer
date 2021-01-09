@@ -12,8 +12,7 @@
       </div>
     <div class="col-xs-6 col-md-4 col"><br><h1 style="margin-left: 75px">JA NE MOREN VIŠE TAKO  </h1><br>
     <p style="text-align: justify;">
-     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-   joj baš ste bili dobri - jeste sigurni da želite odustati?
+     Ovo bismo zapravo koristili kad otkažu kao return page.
     </p><br><br>
     <button type="button" class="btn btn-lg position-absolute" style="margin-left: 29%; background-color:#384F7B; color:#ffffff">OU NEEEEEEE</button>
     </div>     
