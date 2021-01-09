@@ -28,7 +28,9 @@
 
           <ul class="nav nav-pills">
             <li v-if="store.currentUser" class="nav-item">
-              <p>Hello {{ store.userDisplayName }}</p>
+              <router-link class="nav-link" to="/edit"
+                ><p>Hello {{ store.currentUser }}</p></router-link
+              >
             </li>
 
             <li v-if="!store.currentUser" class="nav-item">
@@ -115,7 +117,7 @@ import { firebase } from "@/firebase";
 import router from "@/router";
 
 firebase.auth().onAuthStateChanged((user) => {
-	const currentRoute = router.currentRoute;
+  const currentRoute = router.currentRoute;
   if (user) {
     // User is signed in.
     store.currentUser = user.email;

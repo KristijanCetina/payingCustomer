@@ -3,8 +3,8 @@
   <div>
   <b-navbar toggleable="lg" class="naviStyle">
       <b-navbar-nav class="ml-auto">
-        <b-button variant="outline-primary" style="width: 145px; height: 85px; font-size:17px"
-            >LOG OUT</b-button>
+        <!-- <b-button variant="outline-primary" style="width: 145px; height: 85px; font-size:17px"
+            >LOG OUT</b-button> -->
       </b-navbar-nav>
       </b-navbar>
   </div>
@@ -46,7 +46,12 @@
         </div> 
 </template>
 
-
+<script>
+export default {
+  props: ["authNavi"],
+  name: "AuthNavi",
+};
+</script>
 
 <style scoped>
 .sidenav {
