@@ -134,7 +134,7 @@ export default {
 				.signInWithEmailAndPassword(this.email, this.password)
 				.then(() => {
 					if (firebase.auth().currentUser.emailVerified) {
-						this.$router.replace({ name: "Home" });
+						this.$router.replace({ name: "Subscription" });
 					} else {
 						console.log("email is not verified");
 						firebase

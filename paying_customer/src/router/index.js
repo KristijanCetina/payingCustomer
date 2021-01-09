@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import store from "@/store";
+
 import AboutUs from '../views/AboutUs.vue'
 import Contact from '../views/Contact.vue'
 import Calendar from '../views/Calendar.vue'
@@ -58,7 +60,11 @@ const routes = [
   {
     path: '/cancel',
     name: 'Cancel',
-    component: Cancel
+    component: Cancel,
+    meta: {
+      needsUser: true,
+    },
+
   },
   {
     path: '/login',
@@ -88,47 +94,74 @@ const routes = [
   {
     path: '/subscription',
     name: 'Subscription',
-    component: Subscription
+    component: Subscription,
+    meta: {
+      needsUser: true,
+    },
   },
   {
     path: '/mypayments',
     name: 'MyPayments',
-    component: MyPayments
+    component: MyPayments,
+    meta: {
+      needsUser: true,
+    },
   },
   {
     path: '/calendar_dash',
     name: 'Calendar_dash',
-    component: Calendar_dash
+    component: Calendar_dash,
+    meta: {
+      needsUser: true,
+    },
   },
   {
     path: '/news_dash',
     name: 'News_dash',
-    component: News_dash
+    component: News_dash,
+    meta: {
+      needsUser: true,
+    },
   },
   {
     path: '/users_admin',
     name: 'Users_admin',
-    component: Users_admin
+    component: Users_admin,
+    meta: {
+      needsUser: true,
+    },
   },
   {
     path: '/subscription_admin',
     name: 'Subscription_admin',
-    component: Subscription_admin
+    component: Subscription_admin,
+    meta: {
+      needsUser: true,
+    },
   },
   {
     path: '/myPayments_admin',
     name: 'MyPayments_admin',
-    component: MyPayments_admin
+    component: MyPayments_admin,
+    meta: {
+      needsUser: true,
+    },
   },
   {
     path: '/calendar_admin',
     name: 'Calendar_admin',
-    component: Calendar_admin
+    component: Calendar_admin,
+    meta: {
+      needsUser: true,
+    },
   },
   {
     path: '/News_admin',
     name: 'News_admin',
-    component: News_admin
+    component: News_admin,
+    meta: {
+      needsUser: true,
+    },
   }
 ]
 
@@ -137,5 +170,22 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  console.log(
+    "Bio sam na",
+    from.name,
+    "idem na",
+    to.name,
+    "a korisnik je",
+    store.currentUser
+  );
+  const noUser = store.currentUser === null;
+  if (noUser && to.meta.needsUser) {
+    next("Login");
+  } else {
+    next();
+  }
+});
 
 export default router
