@@ -100,6 +100,14 @@ const routes = [
     },
   },
   {
+    path: '/edit',
+    name: 'Edit',
+    component: () => import('../views/Edit.vue'),
+    meta: {
+      needsUser: true,
+    },
+  },
+  {
     path: '/mypayments',
     name: 'MyPayments',
     component: MyPayments,
