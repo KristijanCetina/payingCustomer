@@ -14,14 +14,27 @@
     <div class="col-sm">
       <h1 style="color: #384F7B;">NEWS</h1><br>
     <div class="row">
-      <newsCard class="alignCard" v-for="news in news" :key="news.id" :name="news.name" :tekst="news.tekst" :date="news.date"></newsCard>       
+      <newsCard class="alignCard" v-for="news in displayNews" :key="news.id" :name="news.name" :tekst="news.tekst" :date="news.date"></newsCard>       
       </div>
+     <div class="mt-3">
+      <b-pagination
+        pills
+        v-model="currentPage"
+        :total-rows="rows"
+        :per-page="perPage"
+        first-text="First"
+        prev-text="Prev"
+        next-text="Next"
+        last-text="Last"
+        @input="paginate(currentPage)"
+        align="center"
+      ></b-pagination>
+    </div>
     </div>
   </div>
 </div>
 </div>
 </template>
-
 
 
 <script>
@@ -36,15 +49,26 @@ export default {
   },
   data(){
     return {
-      news: []
+      news: [],
+      displayNews: [],
+      currentPage: 1,
+      rows: 1,
+      perPage: 2
     };
   },
   methods:{
     async fetchData(){
       const res = await fetch("news.json");
       const val = await res.json();
-      this.news = val; 
+      this.news = val;
+      this.displayNews = val.slice(0, 2);
+
+      this.rows = this.news.length;
       console.log(val);
+    },
+    paginate(currentPage){
+      const start = (currentPage -1) * this.perPage;
+      this.displayNews = this.news.slice(start, start + 2);
     }
   }
 };

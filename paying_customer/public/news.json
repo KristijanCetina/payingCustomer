@@ -1,14 +1,45 @@
 [
     {
-        "date": "25.12.2020",
+        "date": "10.1.2021",
         "name": "Kartica vjesti",
         "tekst":"Uvijek kada upisemo novu vijest u news.json pokaže se ovdje nova kartica. Nalazi se u public folderu. Za dodavati vjesti treba napraviti funkciju koja kada dodamo u našem dashboardu dodaje/sprema vjest u .json file(ili sa bazom)",
         "id": 1
     },
     {
-        "date": "12.11.2020",
+        "date": "5.1.2021",
         "name": "Kartica br dva",
         "tekst":"Isto tako kada brišemo da se iz news.json obriše te tako se i kartica automatski obriše. Ja sam tako zamislio, ako ste mislili drugacije javite.",
         "id": 2
+    }
+    ,
+    {
+        "date": "25.12.2020",
+        "name": "Kartica br tri",
+        "tekst":"Ovo se sad nalazi na drugoj stranici i bas je cool. Ima za doraditi nesto ali ovo je supp sad.",
+        "id": 3
+    },
+    {
+        "date": "20.12.2020",
+        "name": "Četiri znači 4",
+        "tekst":"Ovo se sad nalazi na drugoj stranici i još je cool. Trebali bi napraviti funkciju s kojim bi mjenjali vjesti u dash-u.",
+        "id": 4
+    },
+    {
+        "date": "18.12.2020",
+        "name": "Cool kartica",
+        "tekst":"Ovo bi trebalo sada biti na trećoj stranici i fora je ali nije kao na početku. Sada je samo cool",
+        "id": 5
+    },
+    {
+        "date": "25.1.2020",
+        "name": "Kartica br 6",
+        "tekst":"Isto tako na trećoj stranici se nalazimo. Juhuuu, još malo pa će mi ručak. Samo da nije grah",
+        "id": 6
+    },
+    {
+        "date": "20.11.2020",
+        "name": "Vic",
+        "tekst":"I takooo.  Ulazi programer u crkvu i pita svećenika: Ima li ovdje Wi-fi? Svećenik zakoluta očima i kaže: Bože pomozi! To je korisničko ime ili lozinka? - upita programer.",
+        "id": 7
     }
 ]
