@@ -29,7 +29,7 @@
           <ul class="nav nav-pills">
             <li v-if="store.currentUser" class="nav-item">
               <router-link class="nav-link" to="/edit"
-                ><p>Hello {{ store.currentUser }}</p></router-link
+                ><p>Hello {{ store.userDisplayName }}</p></router-link
               >
             </li>
 
@@ -116,11 +116,12 @@ import store from "@/store";
 import { firebase } from "@/firebase";
 import router from "@/router";
 
-firebase.auth().onAuthStateChanged((user) => {
+firebase.auth().onAuthStateChanged(user => {
   const currentRoute = router.currentRoute;
   if (user) {
     // User is signed in.
     store.currentUser = user.email;
+    store.userDisplayName = user.displayName;
     console.log("emailVerified:" + user.emailVerified);
     if (!currentRoute.meta.needsAuth) {
       router.push({ name: "Subscription" });
