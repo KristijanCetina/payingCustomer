@@ -1,18 +1,13 @@
 <template>
-  <div>
-    <br />
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-3">
-          <authNavi />
-        </div>
+        <authNavi/>
+        <div class="col-md-3"></div>
         <div class="col-md-9">
           Tu će doći pregled uplata!
         </div>
       </div>
-      <br /><br /><br />
     </div>
-  </div>
 </template>
 
 <script>

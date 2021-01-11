@@ -1,28 +1,31 @@
 <template>
-    <div>
-		<br>
         <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-3">
 		<authNavi/>
-		</div>
-		<div class="col-md-9">Za sada stavljamo u desni grid dok ne skuzim kako funkcionira da prepozna samo od sidebara desno. Onda cemo samo jedan grid stavit.
-		</div>
-	</div><br><br><br>
-    <div class="row">
-		<div class="col-md-3">
-		</div>
-	</div>
+		<div class="col-md-3"></div>
+		<div class="col-md-8">
+			<div class="container">
+        <p>"SUBSCRIPTION" --> ovo bi trebalo staviti gore u navi, tako za svaki link koji stisne. Gore desno, ako se moze narvno.</p><br>
+        <div class="row">
+          <subscriptionCard/>
+          <subscriptionCard/>
+          <subscriptionCard/>
+        </div>
     </div>
+	</div>
+	</div>
     </div>
 </template>
 
 <script>
 import authorized_navi from "@/components/authorized_navi.vue";
+import subscriptionCard from "@/components/subscriptionCard.vue";
 
 export default {
 name: "Subscription",
 components:{
-	"authNavi" :authorized_navi},
+	"authNavi" :authorized_navi,
+	"subscriptionCard" :subscriptionCard
+	},
 }
 </script>
