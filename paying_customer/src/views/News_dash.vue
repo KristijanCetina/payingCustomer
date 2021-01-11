@@ -7,7 +7,7 @@
 			<div class="row">
       <newsCard class="alignCard" v-for="news in displayNews" :key="news.id" :name="news.name" :tekst="news.tekst" :date="news.date"></newsCard>       
       </div>
-     <div class="mt-3">
+     <div class="mt-2">
       <b-pagination
         pills
         v-model="currentPage"
@@ -28,7 +28,7 @@
 
 <script>
 import authorized_navi from "@/components/authorized_navi.vue";
-import newsCard from "./../components/newsCard";
+import newsCard from "@/components/newsCard";
 
 export default {
 name: "Subscription",

@@ -38,7 +38,7 @@
 
 
 <script>
-import newsCard from "./../components/newsCard";
+import newsCard from "@/components/newsCard";
 export default {
   name: 'app',
   components: {
