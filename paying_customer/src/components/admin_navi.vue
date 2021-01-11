@@ -1,14 +1,4 @@
 <template>
-<div>
-  <div>
-  <b-navbar toggleable="lg" class="naviStyle">
-      <b-navbar-nav class="ml-auto">
-        <b-button variant="outline" class="buttonStyle"
-            >LOG OUT</b-button>
-      </b-navbar-nav>
-      </b-navbar>
-  </div>
-
       <div id="mySidenav" class="sidenav" ><br>
           <p><img width="40px" src="./../assets/logoPC.png" alt="Logo" style="border-radius: 50px">
             Paying Customer</p><hr style="background-color:#c8cad8;"><br>
@@ -49,7 +39,6 @@
                 News</a></b-nav-item>
             </b-navbar-nav>
         </div>
-</div>     
 </template>
 
 
