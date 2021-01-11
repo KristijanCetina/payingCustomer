@@ -12,12 +12,14 @@
       </div>
     <div class="col-xs-6 col-md-7">
     <div class="container">
-        <h1 class="centerTitle" style="color: #384F7B">OPCIJE</h1><br>
+        <h1 class="centerTitle" style="color: #384F7B">PLANS</h1><br>
         <div class="row">
-          <subscriptionCard/>
-          <subscriptionCard/>
-          <subscriptionCard/>
-            
+          <subscriptionCard v-for="plan in plans" :key="plan.id" 
+          :cijena="plan.cijena" 
+          :tekst="plan.tekst" 
+          :slika="plan.slika"
+          :naziv="plan.naziv"
+          ></subscriptionCard>                  
         </div>
     </div>
    </div>     
@@ -34,8 +36,24 @@ export default {
 name: "Subscription",
 components:{
 	"subscriptionCard" :subscriptionCard
-	},
-}
+  },
+    mounted(){
+    this.fetchData();
+  },
+  data(){
+    return {
+      plans: [],
+    };
+  },
+  methods:{
+    async fetchData(){
+      const pes = await fetch("plans.json");
+      const zim = await pes.json();
+      this.plans = zim;
+      console.log(zim);
+    },
+  }
+};
 </script>
 
 

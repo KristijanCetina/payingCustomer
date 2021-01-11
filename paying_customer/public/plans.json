@@ -1,0 +1,23 @@
+[
+    {
+        "cijena": "50kn",
+        "slika": "junior.jpg",
+        "naziv": "Junior",
+        "tekst":"Za sve koji žele isporbati",
+        "id": 1
+    },
+    {
+        "cijena": "100kn",
+        "slika": "midlevel.jpg",
+        "naziv": "Mid-Level",
+        "tekst":"Većina korisnika odabire",
+        "id": 2
+    },
+    {
+        "cijena": "150kn",
+        "slika": "senior.jpg",
+        "naziv": "Senior",
+        "tekst":"Najbolji plan za profesionalce",
+        "id": 3
+    }
+]

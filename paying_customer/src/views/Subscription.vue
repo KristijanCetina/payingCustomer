@@ -7,9 +7,12 @@
 			<div class="container">
         <p>"SUBSCRIPTION" --> ovo bi trebalo staviti gore u navi, tako za svaki link koji stisne. Gore desno, ako se moze narvno.</p><br>
         <div class="row">
-          <subscriptionCard/>
-          <subscriptionCard/>
-          <subscriptionCard/>
+           <subscriptionCard v-for="plan in plans" :key="plan.id" 
+          :cijena="plan.cijena" 
+          :tekst="plan.tekst" 
+          :slika="plan.slika"
+          :naziv="plan.naziv"
+          ></subscriptionCard>
         </div>
     </div>
 	</div>
@@ -27,5 +30,21 @@ components:{
 	"authNavi" :authorized_navi,
 	"subscriptionCard" :subscriptionCard
 	},
-}
+    mounted(){
+    this.fetchData();
+  },
+  data(){
+    return {
+      plans: [],
+    };
+  },
+  methods:{
+    async fetchData(){
+      const pes = await fetch("plans.json");
+      const zim = await pes.json();
+      this.plans = zim;
+      console.log(zim);
+    },
+  }
+};
 </script>
