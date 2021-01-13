@@ -5,7 +5,7 @@
 		<div class="col-md-3"></div>
 		<div class="col-md-8">
 			<div class="container">
-        <p>"SUBSCRIPTION" --> ovo bi trebalo staviti gore u navi, tako za svaki link koji stisne. Gore desno, ako se moze narvno.</p><br>
+        <p>"SUBSCRIPTION" --> ovo bi trebalo staviti gore u navi, tako za svaki link koji stisne. Gore lijevo, ako se moze narvno.</p><br>
         <div class="row">
            <subscriptionCard v-for="plan in plans" :key="plan.id" 
           :cijena="plan.cijena" 

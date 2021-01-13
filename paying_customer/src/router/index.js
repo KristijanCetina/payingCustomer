@@ -2,14 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import store from "@/store";
-
 import AboutUs from '../views/AboutUs.vue'
 import Contact from '../views/Contact.vue'
 import Calendar from '../views/Calendar.vue'
 import News from '../views/News.vue'
 import Cancel from '../views/Cancel.vue'
 import Login from '../views/Login.vue'
-import Plan from '../views/Plan.vue'
 import Signup from '../views/Signup.vue'
 import Subscription from '../views/Subscription.vue'
 import MyPayments from '../views/MyPayments.vue'
@@ -66,11 +64,6 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
-  },
-  {
-    path: '/plan',
-    name: 'Plan',
-    component: Plan
   },
   {
     path: '/signup',
