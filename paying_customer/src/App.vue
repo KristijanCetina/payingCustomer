@@ -26,12 +26,12 @@
             <b-nav-item v-if="!store.currentUser" to="/News">NEWS</b-nav-item>
           </b-navbar-nav>
 
-          <ul class="nav nav-pills">
-            <li v-if="store.currentUser" class="nav-item">
-              <router-link class="nav-link" to="/edit"
-                ><p>Hello {{ store.userDisplayName }}</p></router-link
-              >
-            </li>
+          <ul class="nav">
+
+       <b-dropdown v-if="store.currentUser" id="dropdown-right" variant="info" size="lg" right text="Profile" class="m-2">
+      <b-dropdown-item to="/edit">{{ store.userDisplayName }}</b-dropdown-item>
+       <b-dropdown-item to="/signup" @click.prevent="logout()">Sing out</b-dropdown-item>
+      </b-dropdown>
 
             <li v-if="!store.currentUser" class="nav-item">
               <router-link class="nav-link" to="/login">Login</router-link>
@@ -44,15 +44,6 @@
                 >forgot password</router-link
               >
             </li> -->
-            <li v-if="store.currentUser" class="nav-item">
-              <a
-                style="color: gray"
-                class="nav-link"
-                href="#"
-                @click.prevent="logout()"
-                >Logout</a
-              >
-            </li>
           </ul>
         </b-collapse>
       </b-navbar>
@@ -105,7 +96,7 @@
     </div>
     <!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> -->
-    <router-view /><br />
+    <router-view /><br>
   </div>
 </template>
 
