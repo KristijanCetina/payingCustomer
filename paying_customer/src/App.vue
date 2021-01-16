@@ -27,11 +27,24 @@
           </b-navbar-nav>
 
           <ul class="nav">
-
-       <b-dropdown v-if="store.currentUser" id="dropdown-right" variant="info" size="lg" right text="Profile" class="m-2">
-      <b-dropdown-item to="/edit">{{ store.userDisplayName }}</b-dropdown-item>
-       <b-dropdown-item to="/signup" @click.prevent="logout()">Sing out</b-dropdown-item>
-      </b-dropdown>
+            <b-dropdown
+              v-if="store.currentUser"
+              id="dropdown-right"
+              variant="info"
+              size="lg"
+              right
+              text="Profile"
+              class="m-2"
+            >
+              <b-dropdown-item to="/edit"
+                >{{ store.userDisplayName }}
+                <span v-if="store.userIsAdmin"> - admin</span>
+                <span v-else> - user vulgaris</span>
+              </b-dropdown-item>
+              <b-dropdown-item to="/signup" @click.prevent="logout()"
+                >Log Out</b-dropdown-item
+              >
+            </b-dropdown>
 
             <li v-if="!store.currentUser" class="nav-item">
               <router-link class="nav-link" to="/login">Login</router-link>
@@ -96,7 +109,7 @@
     </div>
     <!-- <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> -->
-    <router-view /><br>
+    <router-view /><br />
   </div>
 </template>
 
@@ -107,6 +120,12 @@ import store from "@/store";
 import { firebase } from "@/firebase";
 import router from "@/router";
 
+const admins = [
+  "iOV0SSPc3Pd6ed5BuNsHT6jeSIp2", //Kristijan
+  "bvVmyBHK2PZJJQrXJWfFDNDnO4p1", //Đovana
+  "ejjTbGCCTjN8LJhNB4fRQZw3qJb2", //Marko
+];
+
 firebase.auth().onAuthStateChanged(user => {
   const currentRoute = router.currentRoute;
   if (user) {
@@ -114,15 +133,21 @@ firebase.auth().onAuthStateChanged(user => {
     store.currentUser = user.email;
     store.userDisplayName = user.displayName;
     console.log("emailVerified:" + user.emailVerified);
+    if (admins.includes(user.uid)) {
+      store.userIsAdmin = true;
+    } else {
+      store.userIsAdmin = false; // iako je po default false neka se nađe.
+    }
     if (!currentRoute.meta.needsAuth) {
       router.push({ name: "Subscription" });
     }
   } else {
     // No user is signed in.
     store.currentUser = null;
+    store.userIsAdmin = false;
 
     if (currentRoute.meta.needsAuth) {
-      router.push({ name: "" });
+      router.push({ name: "Login" });
     }
   }
 });
