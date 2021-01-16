@@ -1,4 +1,5 @@
-export default{
-    currentUser: null,
-    userDisplayName: null,
-}
+export default {
+  currentUser: null,
+  userDisplayName: null,
+  userIsAdmin: false,
+};
