@@ -117,17 +117,19 @@
 // import authorized_navi from "@/components/authorized_navi.vue";
 //import admin_navi from "@/components/admin_navi.vue";
 import store from "@/store";
-import { firebase } from "@/firebase";
+import { firebase, db } from "@/firebase";
 import router from "@/router";
 
-const admins = [
-  "iOV0SSPc3Pd6ed5BuNsHT6jeSIp2", //Kristijan
-  "bvVmyBHK2PZJJQrXJWfFDNDnO4p1", //Đovana
-  "ejjTbGCCTjN8LJhNB4fRQZw3qJb2", //Marko
-];
+let admins = [];
+// let admins = [
+//   "iOV0SSPc3Pd6ed5BuNsHT6jeSIp2", //Kristijan
+//   "bvVmyBHK2PZJJQrXJWfFDNDnO4p1", //Đovana
+//   "ejjTbGCCTjN8LJhNB4fRQZw3qJb2", //Marko
+// ];
 
 firebase.auth().onAuthStateChanged(user => {
   const currentRoute = router.currentRoute;
+  console.log(admins);
   if (user) {
     // User is signed in.
     store.currentUser = user.email;
@@ -172,6 +174,28 @@ export default {
           this.$router.push({ name: "Login" });
         });
     },
+
+    async getAdmins() {
+      console.log("Loading admins");
+      await db
+        .collection("admins")
+        .get()
+        .then(results => {
+          results.forEach(doc => {
+            const data = doc.data();
+            console.log(data);
+            admins.push(data.adminUID);
+          });
+        })
+        .catch(e => {
+          console.error(e.message);
+        });
+    },
+  },
+  async created() {
+    console.log("kreirana instanca app. dohvacam admine");
+    await this.getAdmins();
+    console.log("Gotovo s loadnjem");
   },
 };
 </script>
