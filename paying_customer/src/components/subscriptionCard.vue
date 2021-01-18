@@ -18,7 +18,7 @@
        block
        pill
        bottom
-       >Change plan</b-button>
+       >Choose plan</b-button>
     </b-card>
     </div>
 </template>
