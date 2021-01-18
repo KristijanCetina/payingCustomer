@@ -30,8 +30,8 @@ export default {
           quantity: 1,
         },
       ],
-      successURL: 'http://localhost:8080/',//moram napraviti succes page - ili baciti na neku ulogiranu stranicu 
-      cancelURL: 'http://localhost:8080/cancel',
+      successURL: 'https://payingcustomer.netlify.app/',//moram napraviti succes page - ili baciti na neku ulogiranu stranicu 
+      cancelURL: 'https://payingcustomer.netlify.app/cancel',
     };
   },
   // You will be redirected to Stripe's secure checkout page
