@@ -126,6 +126,7 @@ const routes = [
     component: Users_admin,
     meta: {
       needsUser: true,
+      needsAdmin: true,
     },
   },
   {
@@ -134,6 +135,7 @@ const routes = [
     component: Subscription_admin,
     meta: {
       needsUser: true,
+      needsAdmin: true,
     },
   },
   {
@@ -142,6 +144,7 @@ const routes = [
     component: MyPayments_admin,
     meta: {
       needsUser: true,
+      needsAdmin: true,
     },
   },
   {
@@ -150,6 +153,7 @@ const routes = [
     component: Calendar_admin,
     meta: {
       needsUser: true,
+      needsAdmin: true,
     },
   },
   {
@@ -158,6 +162,7 @@ const routes = [
     component: News_admin,
     meta: {
       needsUser: true,
+      needsAdmin: true,
     },
   },
   {
@@ -185,7 +190,11 @@ router.beforeEach((to, from, next) => {
   const noUser = store.currentUser === null;
   if (noUser && to.meta.needsUser) {
     next("Login");
-  } else {
+  } 
+  else if(!noUser && to.meta.needsAdmin){
+    next("Subscription_admin") //vidjet cu gdje da preusmejravam
+  }
+    else {
     next();
   }
 });
