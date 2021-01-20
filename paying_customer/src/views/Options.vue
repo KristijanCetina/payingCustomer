@@ -15,10 +15,11 @@
         <h1 class="centerTitle" style="color: #384F7B">PLANS</h1><br>
         <div class="row">
           <subscriptionCard v-for="plan in plans" :key="plan.id" 
-          :cijena="plan.cijena" 
+          :suma="plan.suma" 
           :tekst="plan.tekst" 
           :slika="plan.slika"
           :naziv="plan.naziv"
+          :price="plan.price"          
           ></subscriptionCard>                  
         </div>
     </div>
