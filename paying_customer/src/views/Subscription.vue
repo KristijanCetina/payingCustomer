@@ -8,7 +8,7 @@
         <p>"SUBSCRIPTION" --> ovo bi trebalo staviti gore u navi, tako za svaki link koji stisne. Gore lijevo, ako se moze narvno.</p><br>
         <div class="row">
            <subscriptionCard v-for="plan in plans" :key="plan.id" 
-          :cijena="plan.cijena" 
+          :suma="plan.suma" 
           :tekst="plan.tekst" 
           :slika="plan.slika"
           :naziv="plan.naziv"
