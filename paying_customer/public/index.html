@@ -20,7 +20,10 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-      gtag("config", "G-14K37BFQHT", { cookie_flags: "SameSite=None;Secure" });
+      gtag("config", "G-14K37BFQHT", {
+        cookie_domain: "https://payingcustomer.netlify.app/",
+        cookie_flags: "SameSite=None;Secure",
+      });
     </script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
