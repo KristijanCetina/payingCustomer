@@ -78,20 +78,27 @@ firebase.auth().onAuthStateChanged(user => {
     store.currentUser = user.email;
     store.userDisplayName = user.displayName;
     console.log("emailVerified:" + user.emailVerified);
+
     if (admins.includes(user.uid)) {
       store.userIsAdmin = true;
+      console.log("user je admin");
     } else {
       store.userIsAdmin = false; // iako je po default false neka se nađe.
     }
-    if (!currentRoute.meta.needsAuth) {
-      router.push({ name: "Subscription" });  
+
+    if (!currentRoute.meta.needsAdmin && store.userIsAdmin){
+      router.push({ name: 'Subscription_admin'});
     }
+    else if(!currentRoute.meta.needsUser && store.currentUser){
+      router.push({ name: 'Subscription'});
+    } 
+    
   } else {
     // No user is signed in.
     store.currentUser = null;
     store.userIsAdmin = false;
 
-    if (currentRoute.meta.needsAuth) {
+    if (currentRoute.meta.needsUser) {
       router.push({ name: "Login" });
     }
   }
