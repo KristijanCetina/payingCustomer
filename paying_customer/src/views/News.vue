@@ -73,14 +73,13 @@ export default {
   },
   methods: {
     async fetchData() {
-      // let displayNews = [];
       let query = db
         .collection("news")
         .orderBy("date", "desc")
         .limit(20);
 
       await query.get().then(result => {
-        this.news = [];
+        this.displayNews = [];
         result.forEach(doc => {
           const data = doc.data();
           this.displayNews.push({
@@ -92,15 +91,7 @@ export default {
         });
       });
 
-      // const res = await fetch("news.json");
-      // console.log("res", res);
-      // const val = await res.json();
-      // console.log("val", val);
-      // this.news = val;
-      // this.displayNews = val.slice(0, 2);
-
       this.rows = this.news.length;
-      // console.log(val);
     },
     paginate(currentPage) {
       const start = (currentPage - 1) * this.perPage;
