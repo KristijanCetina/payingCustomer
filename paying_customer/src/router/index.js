@@ -183,10 +183,10 @@ router.beforeEach((to, from, next) => {
     store.currentUser
   );
   const AuthUser = store.currentUser !== null;
-  if (!AuthUser && to.meta.needsUser) {
+  // const AdminUser = store.userIsAdmin === true;
+  if (!AuthUser && to.meta.needsUser)
     next("Login");
-  } 
-    else {
+  else {
     next();
   }
 });
