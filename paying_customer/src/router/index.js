@@ -15,7 +15,7 @@ import Calendar_dash from '../views/Calendar_dash.vue'
 import News_dash from '../views/News_dash.vue'
 
 import Subscription_admin from '../views/admin/Subscription_admin.vue'
-import MyPayments_admin from '../views/admin/MyPayments_admin.vue'
+import Payments_admin from '../views/admin/Payments_admin.vue'
 import Calendar_admin from '../views/admin/Calendar_admin.vue'
 import News_admin from '../views/admin/News_admin.vue'
 
@@ -123,7 +123,7 @@ const routes = [
   {
     path: '/users_admin',
     name: 'Users_admin',
-    component:() => import('../views/Users_admin.vue'),
+    component:() => import('../views/admin/Users_admin.vue'),
     meta: {
       needsAdmin: true,
     },
@@ -137,9 +137,9 @@ const routes = [
     },
   },
   {
-    path: '/myPayments_admin',
-    name: 'MyPayments_admin',
-    component: MyPayments_admin,
+    path: '/Payments_admin',
+    name: 'Payments_admin',
+    component: Payments_admin,
     meta: {
       needsAdmin: true,
     },
