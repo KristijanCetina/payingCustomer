@@ -52,70 +52,15 @@
             <li v-if="!store.currentUser" class="nav-item">
               <router-link class="nav-link" to="/signup">Sign up</router-link>
             </li>
-            <!-- <li v-if="!store.currentUser" class="nav-item">
-              <router-link class="nav-link" to="/forgot-password"
-                >forgot password</router-link
-              >
-            </li> -->
           </ul>
         </b-collapse>
       </b-navbar>
-      <!-- da se ne vidi sidebar autoriziranog korisnika i admina-->
-      <!-- <authorizedNavi
-				v-if="
-					![
-						'Home',
-						'AboutUs',
-						'Contact',
-						'Calendar',
-						'News',
-						'Users_admin',
-						'Subscription_admin',
-						'MyPayments_admin',
-						'Calendar_admin',
-						'News_admin',
-						'Plan',
-						'Signin',
-						'Cancel',
-						'Login',
-						'AdminLogin',
-						'ForgotPassword',
-						'Options',
-					].includes($route.name)
-				"
-			></authorizedNavi> -->
-      <!-- <adminNavi
-				v-if="
-					![
-						'Home',
-						'AboutUs',
-						'Contact',
-						'Calendar',
-						'News',
-						'Subscription',
-						'MyPayments',
-						'Calendar_dash',
-						'News_dash',
-						'Plan',
-						'Signin',
-						'Cancel',
-						'Login',
-						'AdminLogin',
-						'ForgotPassword',
-						'Options',
-					].includes($route.name)
-				"
-			></adminNavi> -->
     </div>
-    <!-- <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> -->
     <router-view /><br />
   </div>
 </template>
 
 <script>
-// import authorized_navi from "@/components/authorized_navi.vue";
-//import admin_navi from "@/components/admin_navi.vue";
 import store from "@/store";
 import { firebase } from "@/firebase";
 import router from "@/router";
@@ -133,20 +78,27 @@ firebase.auth().onAuthStateChanged(user => {
     store.currentUser = user.email;
     store.userDisplayName = user.displayName;
     console.log("emailVerified:" + user.emailVerified);
+
     if (admins.includes(user.uid)) {
       store.userIsAdmin = true;
+      console.log("user je admin");
     } else {
       store.userIsAdmin = false; // iako je po default false neka se nađe.
     }
-    if (!currentRoute.meta.needsAuth) {
-      router.push({ name: "Subscription" });
+
+    if (!currentRoute.meta.needsAdmin && store.userIsAdmin){
+      router.push({ name: 'Subscription_admin'});
     }
+    else if(!currentRoute.meta.needsUser && store.currentUser){
+      router.push({ name: 'Subscription'});
+    } 
+    
   } else {
     // No user is signed in.
     store.currentUser = null;
     store.userIsAdmin = false;
 
-    if (currentRoute.meta.needsAuth) {
+    if (currentRoute.meta.needsUser) {
       router.push({ name: "Login" });
     }
   }
@@ -154,10 +106,6 @@ firebase.auth().onAuthStateChanged(user => {
 
 export default {
   name: "app",
-  // components: {
-  // 	// authorizedNavi: authorized_navi,
-  // 	adminNavi: admin_navi,
-  // },
   data() {
     return {
       store,

@@ -13,7 +13,7 @@ import Subscription from '../views/Subscription.vue'
 import MyPayments from '../views/MyPayments.vue'
 import Calendar_dash from '../views/Calendar_dash.vue'
 import News_dash from '../views/News_dash.vue'
-import Users_admin from '../views/admin/Users_admin.vue'
+
 import Subscription_admin from '../views/admin/Subscription_admin.vue'
 import MyPayments_admin from '../views/admin/MyPayments_admin.vue'
 import Calendar_admin from '../views/admin/Calendar_admin.vue'
@@ -123,9 +123,9 @@ const routes = [
   {
     path: '/users_admin',
     name: 'Users_admin',
-    component: Users_admin,
+    component:() => import('../views/Users_admin.vue'),
     meta: {
-      needsUser: true,
+      needsAdmin: true,
     },
   },
   {
@@ -133,7 +133,7 @@ const routes = [
     name: 'Subscription_admin',
     component: Subscription_admin,
     meta: {
-      needsUser: true,
+      needsAdmin: true,
     },
   },
   {
@@ -141,7 +141,7 @@ const routes = [
     name: 'MyPayments_admin',
     component: MyPayments_admin,
     meta: {
-      needsUser: true,
+      needsAdmin: true,
     },
   },
   {
@@ -149,7 +149,7 @@ const routes = [
     name: 'Calendar_admin',
     component: Calendar_admin,
     meta: {
-      needsUser: true,
+      needsAdmin: true,
     },
   },
   {
@@ -157,7 +157,7 @@ const routes = [
     name: 'News_admin',
     component: News_admin,
     meta: {
-      needsUser: true,
+      needsAdmin: true,
     },
   },
   {
@@ -182,10 +182,11 @@ router.beforeEach((to, from, next) => {
     "a korisnik je",
     store.currentUser
   );
-  const noUser = store.currentUser === null;
-  if (noUser && to.meta.needsUser) {
+  const AuthUser = store.currentUser !== null;
+  if (!AuthUser && to.meta.needsUser) {
     next("Login");
-  } else {
+  } 
+    else {
     next();
   }
 });

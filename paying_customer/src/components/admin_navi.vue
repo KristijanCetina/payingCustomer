@@ -41,7 +41,12 @@
         </div>
 </template>
 
-
+<script>
+export default {
+  props: ["adminNavi"],
+  name: "AdminNavi",
+};
+</script>
 
 <style lang="scss" scoped>
 .sidenav {
