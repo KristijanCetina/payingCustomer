@@ -4,14 +4,7 @@
          <adminNavi />
         <div class="col-md-3"></div>
         <div class="col-md-9">
-          <div class="limit">
-            <img
-              src="@/assets/schedule.png"
-              fluid
-              alt="Responsive image"
-              style="max-width: 100%; height: auto"
-            />
-          </div>
+          <p>Tu bi trebalo doci pregled uplata...</p>
         </div>
       </div>
     </div>
@@ -22,7 +15,7 @@ import admin_navi from "@/components/admin_navi.vue";
 
 
 export default {
-  name: "CalendarAdmin",
+  name: "PaymentsAdmin",
   components: {
     adminNavi: admin_navi,
 	},

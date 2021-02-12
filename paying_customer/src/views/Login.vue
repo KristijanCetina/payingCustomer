@@ -124,7 +124,7 @@ export default {
             if (!store.userIsAdmin)
             {this.$router.replace({ name: "Subscription" })
             } else {
-            this.$router.replace({ name: "Subscriptio_admin" });
+            this.$router.replace({ name: "Subscription_admin" });
           }}else {
             console.log("email is not verified");
             firebase
