@@ -121,11 +121,12 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then(() => {
           if (firebase.auth().currentUser.emailVerified) {
-            if (!store.userIsAdmin)
-            {this.$router.replace({ name: "Subscription" })
+            if (!store.userIsAdmin) {
+              this.$router.replace({ name: "Subscription" });
             } else {
-            this.$router.replace({ name: "Subscription_admin" });
-          }}else {
+              this.$router.replace({ name: "Subscription_admin" });
+            }
+          } else {
             console.log("email is not verified");
             firebase
               .auth()
@@ -147,7 +148,11 @@ export default {
         .auth()
         .signInWithPopup(provider)
         .then(result => {
-          this.$router.replace({ name: "Subscription" });
+          if (!store.userIsAdmin) {
+            this.$router.replace({ name: "Subscription" });
+          } else {
+            this.$router.replace({ name: "Subscription_admin" });
+          }
           store.token = result.credential.accessToken; // mozda cu ga kasnije za nesto koristiti. za test neka ostane
         })
         .catch(function(error) {
