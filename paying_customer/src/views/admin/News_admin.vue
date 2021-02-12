@@ -4,6 +4,43 @@
       <adminNavi />
       <div class="col-md-4"></div>
       <div class="col-md-7">
+        <div class="newPost">
+          <form
+            @submit.prevent="postNewImage"
+            class=" mb-3 justify-content-center"
+          >
+            <div class="form-group">
+              <label for="postNewNews">objavi novu obavijest:</label>
+              <input
+                v-model="newsTitle"
+                type="text"
+                class="form-control ml-2"
+                placeholder="Naslov vijesti"
+                id="postNewNews"
+              />
+              <textarea
+                v-model="newsText"
+                type="text"
+                rows="4"
+                class="form-control ml-2"
+                placeholder="Obavijest"
+                id="postNewNews"
+              />
+            </div>
+            <button
+              id="buttonPost"
+              :disabled="pendingRequest"
+              type="submit"
+              class="btn btn-primary ml-2"
+            >
+              Objavi obavijest
+            </button>
+            <br />
+            <div v-show="errorMessage" class="alert alert-danger" role="alert">
+              {{ errorMessage }}
+            </div>
+          </form>
+        </div>
         <div class="row">
           <newsCard
             class="alignCard"
@@ -36,39 +73,52 @@
 <script>
 import admin_navi from "@/components/admin_navi.vue";
 import newsCard from "@/components/newsCard";
+import { db } from "@/firebase";
 
 export default {
   name: "NewsAdmin",
   components: {
     adminNavi: admin_navi,
-	"newsCard": newsCard	
-	},
-  mounted(){
+    newsCard: newsCard,
+  },
+  mounted() {
     this.fetchData();
   },
-  data(){
+  data() {
     return {
-      news: [],
       displayNews: [],
       currentPage: 1,
       rows: 1,
-      perPage: 3
+      perPage: 10,
+      newsTitle: "",
     };
   },
-  methods:{
-    async fetchData(){
-      const res = await fetch("news.json");
-      const val = await res.json();
-      this.news = val;
-      this.displayNews = val.slice(0, 3);
+  methods: {
+    async fetchData() {
+      let query = db
+        .collection("news")
+        .orderBy("date", "desc")
+        .limit(this.perPage);
+
+      await query.get().then(result => {
+        this.displayNews = [];
+        result.forEach(doc => {
+          const data = doc.data();
+          this.displayNews.push({
+            id: data.id,
+            name: data.name,
+            tekst: data.text,
+            date: data.date,
+          });
+        });
+      });
 
       this.rows = this.news.length;
-      console.log(val);
     },
-    paginate(currentPage){
-      const start = (currentPage -1) * this.perPage;
-      this.displayNews = this.news.slice(start, start + 3);
-    }
-  }
+    paginate(currentPage) {
+      const start = (currentPage - 1) * this.perPage;
+      this.displayNews = this.news.slice(start, start + this.perPage);
+    },
+  },
 };
 </script>

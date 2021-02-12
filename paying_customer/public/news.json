@@ -1,7 +1,7 @@
 [
     {
-        "date": "10.1.2021",
-        "name": "Kartica vjesti",
+        "date": "1611428111639",
+        "name": "Kartica vjesti da vidim ako sam na pravom mjestu",
         "tekst":"Uvijek kada upisemo novu vijest u news.json pokaže se ovdje nova kartica. Nalazi se u public folderu. Za dodavati vjesti treba napraviti funkciju koja kada dodamo u našem dashboardu dodaje/sprema vjest u .json file(ili sa bazom)",
         "id": 1
     },
