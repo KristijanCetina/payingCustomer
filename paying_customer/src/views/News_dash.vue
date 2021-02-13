@@ -37,7 +37,7 @@
 import authorized_navi from "@/components/authorized_navi.vue";
 import newsCard from "@/components/newsCard";
 import { db } from "@/firebase";
-// import fetchNewsData from "@/commonShared";
+import { fetchNewsData } from "@/commonShared";
 
 export default {
   name: "news_dash",
@@ -46,8 +46,9 @@ export default {
     newsCard: newsCard,
   },
   mounted() {
-    this.fetchData();
-    // fetchNewsData();
+    // this.fetchData();
+    let displayNews = fetchNewsData();
+    this.setData(displayNews);
   },
   data() {
     return {
@@ -58,6 +59,14 @@ export default {
     };
   },
   methods: {
+    setData(data) {
+      this.displayNews.push({
+        id: data.id,
+        name: data.name,
+        tekst: data.text,
+        date: data.date,
+      });
+    },
     async fetchData() {
       let query = db
         .collection("news")
