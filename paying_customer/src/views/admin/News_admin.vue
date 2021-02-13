@@ -5,17 +5,14 @@
       <div class="col-md-4"></div>
       <div class="col-md-7">
         <div class="newPost">
-          <form
-            @submit.prevent="postNewImage"
-            class=" mb-3 justify-content-center"
-          >
+          <form class=" mb-3 justify-content-center">
             <div class="form-group">
               <label for="postNewNews">objavi novu obavijest:</label>
               <input
                 v-model="newsTitle"
                 type="text"
                 class="form-control ml-2"
-                placeholder="Naslov vijesti"
+                placeholder="Naslov obavijesti"
                 id="postNewNews"
               />
               <textarea
@@ -30,7 +27,8 @@
             <button
               id="buttonPost"
               :disabled="pendingRequest"
-              type="submit"
+              @click="postNews"
+              type="button"
               class="btn btn-primary ml-2"
             >
               Objavi obavijest
@@ -81,9 +79,6 @@ export default {
     adminNavi: admin_navi,
     newsCard: newsCard,
   },
-  mounted() {
-    this.fetchData();
-  },
   data() {
     return {
       displayNews: [],
@@ -91,6 +86,8 @@ export default {
       rows: 1,
       perPage: 10,
       newsTitle: "",
+      newsText: "",
+      pendingRequest: false,
     };
   },
   methods: {
@@ -119,6 +116,34 @@ export default {
       const start = (currentPage - 1) * this.perPage;
       this.displayNews = this.news.slice(start, start + this.perPage);
     },
+    async postNews() {
+      if (this.newsTitle !== "" && this.newsText !== "") {
+        try {
+          this.errorMessage = "";
+          this.pendingRequest = true;
+          await db.collection("news").add({
+            name: this.newsTitle,
+            text: this.newsText,
+            date: Date.now(),
+          });
+        } catch (e) {
+          console.error(e.message);
+          this.errorMessage = e.message;
+        } finally {
+          this.newsTitle = "";
+          this.newsText = "";
+          this.pendingRequest = false;
+          this.fetchData();
+        }
+      } else {
+        this.errorMessage = "Budi drug i popuni sve podatke";
+        console.log("daj popusni sve podatke");
+        return;
+      }
+    },
+  },
+  mounted() {
+    this.fetchData();
   },
 };
 </script>

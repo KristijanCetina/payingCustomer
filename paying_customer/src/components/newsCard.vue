@@ -21,7 +21,7 @@ export default {
 
   filters: {
     dateTime: function(value) {
-      return moment(value).format("D.M.YYYY hh:mm");
+      return moment(value).format("D.M.YYYY H:mm");
     },
   },
 };
