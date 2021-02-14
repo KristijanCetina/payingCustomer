@@ -118,7 +118,8 @@ export default {
           this.newsTitle = "";
           this.newsText = "";
           this.pendingRequest = false;
-          this.fetchData();
+          await fetchNewsData();
+          this.displayNews = store.displayNews;
         }
       } else {
         this.errorMessage = "Budi drug i popuni sve podatke";
