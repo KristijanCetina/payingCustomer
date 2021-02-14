@@ -32,11 +32,6 @@
             ></subscriptionCard>
           </div>
         </div>
-        <div id='options'>
-          <button v-on:click="submit('price_1IAe3NB4jY1Sj3hiA9YhObsP')">300 zlatnika</button>
-          <button v-on:click="submit('price_1IAe2sB4jY1Sj3hiGgaywwAH')">srednje zlatnika</button>
-          <button v-on:click="submit('price_1IAe1JB4jY1Sj3hiIzWb257u')">jad i bijeda</button>
-        </div>
       </div>
     </div>
   </div>
@@ -44,7 +39,6 @@
 
 <script>
 import subscriptionCard from "@/components/subscriptionCard.vue";
-import store from '@/store';
 
 export default {
   name: "Subscription",
@@ -60,11 +54,6 @@ export default {
     };
   },
   methods: {
-    submit(message){
-      store.subsType = message;
-      this.$router.replace({ name: "Signup" });
-      console.log(store.subsType)
-    },
     async fetchData() {
       const pes = await fetch("plans.json");
       const zim = await pes.json();

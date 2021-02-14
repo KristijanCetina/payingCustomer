@@ -14,18 +14,8 @@
         Za sve koji žele isporbati
       </b-card-text>
 
-      <stripe-checkout
-      ref="checkoutRef"
-      mode="subscription"
-      :pk="publishableKey"
-      :line-items="lineItems"
-      :success-url="successURL"
-      :cancel-url="cancelURL"
-      
-      @loading="v => loading = v"
-    />
       <b-button
-       @click="submitr"
+       v-on:click="submit(price)"
        style="background-color: #384F7B; border-color: #384F7B; bottom: 20px;"
        block
        pill
@@ -37,34 +27,18 @@
 
 
 <script>
-import { StripeCheckout } from '@vue-stripe/vue-stripe';
+import store from '@/store';
 
 export default {
   props: ["suma","slika","naziv","tekst","price"],
-  components: {
-    StripeCheckout,
-  },
-  data () {
-    this.publishableKey = "pk_test_51I3s13B4jY1Sj3hi06G2QtPl71f6XPgMMxcrOFSPxTdsx6hKo0HmtyXXmTd7D4gCVuJgI8FLctz69epCWCuGyFON0018bChwHC";
-    return {
-      loading: false,
-          lineItems: [
-        {
-          price: this.price, // The id of the recurring price you created in your Stripe dashboard
-          quantity: 1,    //ovo je kolicina proizvoda, tipa kada zelimo u web-shopu uzeti 3 proizvoda pa stsnemo na +
-        },
-      ],
-      successURL: 'https://payingcustomer.netlify.app/',//moram napraviti succes page - ili baciti na neku ulogiranu stranicu 
-      cancelURL: 'https://payingcustomer.netlify.app/cancel',
-    };
-  },
-  // You will be redirected to Stripe's secure checkout page
-  methods: {submitr () {
-    this.$refs.checkoutRef.redirectToCheckout();
-  },
+  methods: {
+    submit(message){
+      store.subsType = message;
+      this.$router.replace({ name: "Signup" });
+      console.log(store.subsType)
+    },
   }
 };
-//  preuzeto sa https://vuestripe.com/stripe-checkout/recurring-payment
 </script>
 
 
