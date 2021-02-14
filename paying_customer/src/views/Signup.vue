@@ -229,3 +229,5 @@ export default {
   },
 };
 </script>
+
+// naplata preuzeto sa https://vuestripe.com/stripe-checkout/recurring-payment
