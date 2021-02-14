@@ -75,16 +75,31 @@
             </label>
           </div>
           <br />
+          <div>
+            <stripe-checkout
+              ref="checkoutRef"
+              mode="subscription"
+              :pk="publishableKey"
+              :line-items="lineItems"
+              :success-url="successURL"
+              :cancel-url="cancelURL"
+              @loading="v => (loading = v)"
+            />
+            <button
+              type="button"
+              @click="signup()"
+              class="btn btn-primary btn-lg btn-block"
+            >
+              Sign In
+            </button>
+          </div>
+          <br />
           <button
             type="button"
-            @click="signup()"
-            class="btn btn-primary btn-lg btn-block"
+            @click="loginWithGoogle()"
+            class="btn btn-secondary btn-lg btn-block"
           >
-            Sign In
-          </button>
-          <br />
-          <button type="button" class="btn btn-secondary btn-lg btn-block">
-            Ovo ce biti GOOGLE
+            Login with Google
           </button>
         </form>
       </div>
@@ -103,18 +118,34 @@
 
 <script>
 import { firebase } from "@/firebase";
+import { StripeCheckout } from "@vue-stripe/vue-stripe";
+import store from "@/store";
 
 export default {
   name: "Signup",
+  components: {
+    StripeCheckout,
+  },
   data() {
+    this.publishableKey =
+      "pk_test_51I3s13B4jY1Sj3hi06G2QtPl71f6XPgMMxcrOFSPxTdsx6hKo0HmtyXXmTd7D4gCVuJgI8FLctz69epCWCuGyFON0018bChwHC";
     return {
       fullName: "",
       email: "",
       password: "",
       repeatedPassword: "",
-      TermsCheck:{
-        accept: true
+      TermsCheck: {
+        accept: true,
       },
+      loading: false,
+      lineItems: [
+        {
+          price: store.subsType, // The id of the recurring price you created in your Stripe dashboard
+          quantity: 1,
+        },
+      ],
+      successURL: "https://payingcustomer.netlify.app/", //moram napraviti succes page - ili baciti na neku ulogiranu stranicu
+      cancelURL: "https://payingcustomer.netlify.app/cancel",
     };
   },
   methods: {
@@ -122,35 +153,38 @@ export default {
       if (this.password != this.repeatedPassword) {
         alert("The password does not match!");
       }
-       if (this.TermsCheck == false) {
-        alert("You have to accept Terms of service!")
+      if (this.TermsCheck == false) {
+        alert("You have to accept Terms of service!");
       } else {
         firebase
-				.auth()
-				.createUserWithEmailAndPassword(this.email, this.password)
-				.then(function () {
-					console.log("Uspješna registracija");
-				})
-				.then(() => {
-					firebase
-						.auth()
-						.currentUser.updateProfile({ displayName: this.fullName });
-					this.verifyEmail();
-				})
-				.then(() => {
-					this.fullName = "";
-					this.email = "";
-					this.password = "";
-					firebase
-						.auth()
-						.signOut()
-						.then(() => {
-							alert(
-								"Potrebno je verificirati e-mail prije korištenja aplikacije pomoću poslanog linka."
-							);
-							this.$router.push({ name: "Login" });
-						});
-				})
+          .auth()
+          .createUserWithEmailAndPassword(this.email, this.password)
+          .then(function() {
+            console.log("Uspješna registracija");
+          })
+          .then(() => {
+            firebase
+              .auth()
+              .currentUser.updateProfile({ displayName: this.fullName });
+            if (store.subsType !== null) {
+              this.pay();
+            } else {
+              this.verifyEmail();
+            }
+          })
+          .then(() => {
+            this.fullName = "";
+            this.email = "";
+            this.password = "";
+            firebase
+              .auth()
+              .signOut()
+              .then(() => {
+                alert(
+                  "Potrebno je verificirati e-mail prije korištenja aplikacije pomoću poslanog linka."
+                );
+              });
+          })
           .catch(function(error) {
             console.error("Došlo je do greške: ", error);
             if (error.message) {
@@ -160,18 +194,38 @@ export default {
       }
     },
     verifyEmail() {
-			firebase
-				.auth()
-				.currentUser.sendEmailVerification()
-				.then(function () {
-					// Verification email sent.
-					console.log("Verification email sent");
-				})
-				.catch(function (error) {
-					// Error occurred. Inspect error.code.
-					console.error("verifyError " + error);
-				});
-		},
+      firebase
+        .auth()
+        .currentUser.sendEmailVerification()
+        .then(function() {
+          // Verification email sent.
+          console.log("Verification email sent");
+        })
+        .catch(function(error) {
+          // Error occurred. Inspect error.code.
+          console.error("verifyError " + error);
+        });
+    },
+    loginWithGoogle() {
+      console.log("Login with google");
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then(() => {
+          if (store.subsType !== null) {
+            this.pay();
+          } else {
+            this.$router.replace({ name: "Subscription" });
+          }
+        })
+        .catch(function(error) {
+          this.errorMessage = error.message;
+        });
+    },
+    pay() {
+      this.$refs.checkoutRef.redirectToCheckout();
+    },
   },
 };
 </script>

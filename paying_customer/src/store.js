@@ -3,4 +3,5 @@ export default {
   userDisplayName: null,
   userIsAdmin: false,
   displayNews: [],
+  subsType: null, //prati koja je Sub odabrana 
 };
