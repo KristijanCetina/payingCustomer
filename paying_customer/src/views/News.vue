@@ -52,19 +52,23 @@
 
 <script>
 import newsCard from "@/components/newsCard";
-import { db } from "@/firebase";
+import { fetchNewsData } from "@/commonShared";
+import store from "@/store";
 
 export default {
   name: "app",
   components: {
     newsCard: newsCard,
   },
+  created() {
+    fetchNewsData();
+  },
   mounted() {
-    this.fetchData();
+    this.displayNews = store.displayNews;
   },
   data() {
     return {
-      news: [],
+      // news: [],
       displayNews: [],
       currentPage: 1,
       rows: 1,
@@ -72,27 +76,6 @@ export default {
     };
   },
   methods: {
-    async fetchData() {
-      let query = db
-        .collection("news")
-        .orderBy("date", "desc")
-        .limit(20);
-
-      await query.get().then(result => {
-        this.displayNews = [];
-        result.forEach(doc => {
-          const data = doc.data();
-          this.displayNews.push({
-            id: data.id,
-            name: data.name,
-            tekst: data.text,
-            date: data.date,
-          });
-        });
-      });
-
-      this.rows = this.news.length;
-    },
     paginate(currentPage) {
       const start = (currentPage - 1) * this.perPage;
       this.displayNews = this.news.slice(start, start + 2);

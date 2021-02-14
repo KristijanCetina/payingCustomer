@@ -1,21 +1,21 @@
 import { db } from "@/firebase";
-export default {
-  fetchNewsData() {
-    console.log("Evo mene moji ljudi"); // niti mi ne pozove ovaj dio
-    let query = db.collection("news").orderBy("date", "desc");
+import store from "@/store";
 
-    let displayNews = [];
-    query.get().then(result => {
-      result.forEach(doc => {
-        const data = doc.data();
-        displayNews.push({
-          id: data.id,
-          name: data.name,
-          tekst: data.text,
-          date: data.date,
-        });
+export async function fetchNewsData() {
+  console.log("Evo mene moji ljudi, došao sam vam pročitati obavijesti");
+  let displayNews = [];
+
+  let query = db.collection("news").orderBy("date", "desc");
+  await query.get().then(result => {
+    result.forEach(doc => {
+      const data = doc.data();
+      displayNews.push({
+        id: data.id,
+        name: data.name,
+        tekst: data.text,
+        date: data.date,
       });
     });
-    return displayNews; //a forši i ne tako
-  },
-};
+  });
+  store.displayNews = displayNews;
+}
