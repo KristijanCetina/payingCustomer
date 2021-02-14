@@ -72,12 +72,20 @@
 import admin_navi from "@/components/admin_navi.vue";
 import newsCard from "@/components/newsCard";
 import { db } from "@/firebase";
+import { fetchNewsData } from "@/commonShared";
+import store from "@/store";
 
 export default {
   name: "NewsAdmin",
   components: {
     adminNavi: admin_navi,
     newsCard: newsCard,
+  },
+  created() {
+    fetchNewsData();
+  },
+  mounted() {
+    this.displayNews = store.displayNews;
   },
   data() {
     return {
@@ -91,27 +99,6 @@ export default {
     };
   },
   methods: {
-    async fetchData() {
-      let query = db
-        .collection("news")
-        .orderBy("date", "desc")
-        .limit(this.perPage);
-
-      await query.get().then(result => {
-        this.displayNews = [];
-        result.forEach(doc => {
-          const data = doc.data();
-          this.displayNews.push({
-            id: data.id,
-            name: data.name,
-            tekst: data.text,
-            date: data.date,
-          });
-        });
-      });
-
-      this.rows = this.news.length;
-    },
     paginate(currentPage) {
       const start = (currentPage - 1) * this.perPage;
       this.displayNews = this.news.slice(start, start + this.perPage);
@@ -141,9 +128,6 @@ export default {
         return;
       }
     },
-  },
-  mounted() {
-    this.fetchData();
   },
 };
 </script>
