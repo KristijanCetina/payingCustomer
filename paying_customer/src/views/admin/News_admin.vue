@@ -81,10 +81,8 @@ export default {
     adminNavi: admin_navi,
     newsCard: newsCard,
   },
-  created() {
-    fetchNewsData();
-  },
-  mounted() {
+  async mounted() {
+    await fetchNewsData();
     this.displayNews = store.displayNews;
   },
   data() {
