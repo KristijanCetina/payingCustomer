@@ -83,7 +83,7 @@
               :line-items="lineItems"
               :success-url="successURL"
               :cancel-url="cancelURL"
-              @loading="v => (loading = v)"
+              @loading="(v) => (loading = v)"
             />
             <button
               type="button"
@@ -120,6 +120,7 @@
 import { firebase } from "@/firebase";
 import { StripeCheckout } from "@vue-stripe/vue-stripe";
 import store from "@/store";
+import { db } from "@/firebase";
 
 export default {
   name: "Signup",
@@ -151,60 +152,59 @@ export default {
   methods: {
     signup() {
       if (this.password != this.repeatedPassword) {
-        alert("The password does not match!");
+        alert("The passwords do not match!");
       }
       if (this.TermsCheck == false) {
         alert("You have to accept Terms of service!");
       } else {
+        //ako je forma ispunjena krece verifikacija i registracija
         firebase
           .auth()
           .createUserWithEmailAndPassword(this.email, this.password)
-          .then(function() {
+          .then(function () {
             console.log("Uspješna registracija");
           })
           .then(() => {
             firebase
               .auth()
               .currentUser.updateProfile({ displayName: this.fullName });
-            if (store.subsType !== null) {
-              this.pay();
-            } else {
-              this.verifyEmail();
-            }
           })
+          //slanje verifikacijskog maila
           .then(() => {
-            this.fullName = "";
-            this.email = "";
-            this.password = "";
             firebase
               .auth()
-              .signOut()
-              .then(() => {
-                alert(
-                  "Potrebno je verificirati e-mail prije korištenja aplikacije pomoću poslanog linka."
-                );
+              .currentUser.sendEmailVerification()
+              .then(function () {
               });
           })
-          .catch(function(error) {
+          //spremanje korisnika s pretplatom u firebase
+          .then(() => {
+            this.regUser();
+          })
+          .then(() => {
+            if (store.subsType !== null) {
+              // ako je korisnik došao sa stranice s paketa šaljemo ga na placanje
+              alert ('Bit ce te presumjereni na stanicu za placanje te vam je poslan verifikacijski email')
+              this.pay();
+            } else {
+              //ako se samo išao registrirati
+              firebase
+                .auth()
+                .signOut()
+                .then(() => {
+                  alert(
+                    "Potrebno je verificirati e-mail prije korištenja aplikacije pomoću poslanog linka."
+                  );
+                });
+            }
+          })
+          .catch(function (error) {
             console.error("Došlo je do greške: ", error);
             if (error.message) {
               alert(error.message);
             }
           });
       }
-    },
-    verifyEmail() {
-      firebase
-        .auth()
-        .currentUser.sendEmailVerification()
-        .then(function() {
-          // Verification email sent.
-          console.log("Verification email sent");
-        })
-        .catch(function(error) {
-          // Error occurred. Inspect error.code.
-          console.error("verifyError " + error);
-        });
     },
     loginWithGoogle() {
       console.log("Login with google");
@@ -213,18 +213,28 @@ export default {
         .auth()
         .signInWithPopup(provider)
         .then(() => {
+          this.regUser();
           if (store.subsType !== null) {
             this.pay();
           } else {
             this.$router.replace({ name: "Subscription" });
           }
         })
-        .catch(function(error) {
+        .catch(function (error) {
           this.errorMessage = error.message;
         });
     },
     pay() {
       this.$refs.checkoutRef.redirectToCheckout();
+    },
+    regUser() {
+      alert("upisujem");
+      db.collection("users").add({
+        name: this.fullName,
+        email: this.email,
+        posted_at: Date.now(),
+        subscription: store.subsType,
+      });
     },
   },
 };
