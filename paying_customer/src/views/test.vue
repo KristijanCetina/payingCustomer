@@ -15,9 +15,11 @@
 
 <script>
 import { StripeCheckout } from "@vue-stripe/vue-stripe";
+import store from "@/store";
+import { db } from "@/firebase";
 
 export default {
-  name: 'test', 
+  name: "test",
   components: {
     StripeCheckout,
   },
@@ -39,7 +41,19 @@ export default {
   // You will be redirected to Stripe's secure checkout page
   methods: {
     submit() {
+      console.log('test kombo')
+      this.regUser();
       this.$refs.checkoutRef.redirectToCheckout();
+    },
+
+    regUser() {
+      alert("upisujem", store.userDisplayName);
+      db.collection("users").add({
+        name: store.userDisplayName,
+        email: store.currentUser,
+        posted_at: Date.now(),
+        subscription: store.subsType,
+      });
     },
   },
 };

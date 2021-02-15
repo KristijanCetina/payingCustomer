@@ -163,7 +163,10 @@ const routes = [
   {
     path: '/test',
     name: 'test',
-    component: () => import('../views/test.vue')
+    component: () => import('../views/test.vue'),
+    meta: {
+      needsUser: true,
+    },
   },
 ]
 
