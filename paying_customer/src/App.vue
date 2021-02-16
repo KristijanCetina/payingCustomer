@@ -87,7 +87,7 @@ firebase.auth().onAuthStateChanged(user => {
     }
 
     if (!currentRoute.meta.needsAdmin && store.userIsAdmin){
-      router.push({ name: 'Subscription_admin'});
+      router.push({ name: 'Users_admin'});
     }
     else if(!currentRoute.meta.needsUser && store.currentUser && !store.userIsAdmin){
       router.push({ name: 'Subscription'});

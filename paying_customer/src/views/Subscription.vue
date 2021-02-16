@@ -5,12 +5,14 @@
       <div class="col-md-3"></div>
       <div class="col-md-8">
         <div class="container">
-          <p>
-            "SUBSCRIPTION" --> ovo bi trebalo staviti gore u navi, tako za svaki
-            link koji stisne. Gore lijevo, ako se moze narvno.
-          </p>
-          <br />
-          <div class="row">
+          <h1>Dobro došli!</h1>
+          <h4>Trenutno koristite sljedeću pretplatu:</h4>
+          <h2>
+            {{ this.subUser }}
+          </h2>
+
+          <!-- trenutno ovo ne prikazujem vec samo trenutnu pretplatu 
+            <div class="row">
             <subscriptionCard
               v-for="plan in plans"
               :key="plan.id"
@@ -19,7 +21,7 @@
               :slika="plan.slika"
               :naziv="plan.naziv"
             ></subscriptionCard>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -28,29 +30,59 @@
 
 <script>
 import authorized_navi from "@/components/authorized_navi.vue";
-import subscriptionCard from "@/components/subscriptionCard.vue";
+// import subscriptionCard from "@/components/subscriptionCard.vue";
+import store from "@/store";
+import { db } from "@/firebase";
 
 export default {
   name: "Subscription",
   components: {
     authNavi: authorized_navi,
-    subscriptionCard: subscriptionCard,
+    // subscriptionCard: subscriptionCard,
   },
   mounted() {
-    this.fetchData();
+    // this.fetchData();
+    this.subTypeGet();
   },
   data() {
     return {
       plans: [],
+      subUser: null,
     };
   },
   methods: {
-    async fetchData() {
-      const pes = await fetch("plans.json");
-      const zim = await pes.json();
-      this.plans = zim;
-      console.log(zim);
+    subTypeGet() {
+      db.collection("users")
+        .get()
+        .then((query) => {
+          query.forEach((doc) => {
+            const data = doc.data();
+            if (data.email === store.currentUser) {
+              if (data.subscription === "price_1IAe1JB4jY1Sj3hiIzWb257u") {
+                this.subUser = "Junior - 150kn";
+              } else if (
+                data.subscription === "price_1IAe2sB4jY1Sj3hiGgaywwAH"
+              ) {
+                this.subUser = "Mid-Level - 250kn";
+              } else if (data.subscription === "price_1IAe3NB4jY1Sj3hiA9YhObsP"){
+                this.subUser = "Senior - 500kn";
+              }
+            }
+            else{
+              this.subUser = " Trenutno nemate aktivne pretplate!"
+            }
+          });
+        })
+        .catch((error) => {
+          alert("doslo je do greske", error);
+        });
     },
+    // async fetchData() {
+    //   const pes = await fetch("plans.json");
+    //   const zim = await pes.json();
+    //   this.plans = zim;
+    //   console.log(zim);
+    // },
   },
 };
 </script>

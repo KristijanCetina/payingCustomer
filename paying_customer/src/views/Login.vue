@@ -124,7 +124,7 @@ export default {
             if (!store.userIsAdmin) {
               this.$router.replace({ name: "Subscription" });
             } else {
-              this.$router.replace({ name: "Subscription_admin" });
+              this.$router.replace({ name: "Users_admin" });
             }
           } else {
             console.log("email is not verified");
@@ -151,7 +151,7 @@ export default {
           if (!store.userIsAdmin) {
             this.$router.replace({ name: "Subscription" });
           } else {
-            this.$router.replace({ name: "Subscription_admin" });
+            this.$router.replace({ name: "Users_admin" });
           }
           store.token = result.credential.accessToken; // mozda cu ga kasnije za nesto koristiti. za test neka ostane
         })
