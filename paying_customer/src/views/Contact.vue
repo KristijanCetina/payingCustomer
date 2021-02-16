@@ -23,7 +23,7 @@
                                 <div class="card-body text-center">
                                     <p><img class=" img-fluid" src="@/assets/female.png" alt="card image"></p>
                                     <h4 class="card-title">Ivana Polonjo</h4>
-                                    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    <p class="card-text">Trying to be the person I needed in my life when I was younger!</p>
                                     <a href="" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
                             </div>
@@ -32,20 +32,20 @@
                             <div class="card">
                                 <div class="card-body text-center mt-4">
                                     <h4 class="card-title" style="margin-top: -15px">Ivana Polonijo</h4>
-                                    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                    <p class="card-text">Benevolent Alpha and Omega. Other then that - a mother, a wife, an IT professional...singer, walker of dogs, ocassional seamstress..</p>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="">
+                                            <a class="social-icon text-xs-center" target="_blank" href="https://www.facebook.com/ivana.polonijo">
                                                 <i class="fa fa-facebook"></i>
                                             </a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="">
+                                            <a class="social-icon text-xs-center" target="_blank" href="https://www.linkedin.com/in/ivanapolonijo/">
                                                 <i class="fa fa-linkedin"></i>
                                             </a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="">
+                                            <a class="social-icon text-xs-center" target="_blank" href="https://www.instagram.com/polonium5/">
                                                 <i class="fa fa-instagram"></i>
                                             </a>
                                         </li>
