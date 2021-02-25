@@ -40,15 +40,15 @@ export default {
     authNavi: authorized_navi,
     // subscriptionCard: subscriptionCard,
   },
-  mounted() {
-    // this.fetchData();
-    this.subTypeGet();
-  },
   data() {
     return {
       plans: [],
       subUser: null,
     };
+  },
+  mounted() {
+    // this.fetchData();
+    this.subTypeGet();
   },
   methods: {
     subTypeGet() {
@@ -58,18 +58,21 @@ export default {
           query.forEach((doc) => {
             const data = doc.data();
             if (data.email === store.currentUser) {
+              console.log("iz baze", data.subscription);
+              console.log("od korisnika", store.currentUser);
               if (data.subscription === "price_1IAe1JB4jY1Sj3hiIzWb257u") {
                 this.subUser = "Junior - 150kn";
               } else if (
                 data.subscription === "price_1IAe2sB4jY1Sj3hiGgaywwAH"
               ) {
                 this.subUser = "Mid-Level - 250kn";
-              } else if (data.subscription === "price_1IAe3NB4jY1Sj3hiA9YhObsP"){
+              } else if (
+                data.subscription === "price_1IAe3NB4jY1Sj3hiA9YhObsP"
+              ) {
                 this.subUser = "Senior - 500kn";
+              } else {
+                this.subUser = "Trenutno nemate aktivne pretplate!";
               }
-            }
-            else{
-              this.subUser = " Trenutno nemate aktivne pretplate!"
             }
           });
         })
@@ -77,11 +80,9 @@ export default {
           alert("doslo je do greske", error);
         });
     },
-    // async fetchData() {
-    //   const pes = await fetch("plans.json");
-    //   const zim = await pes.json();
-    //   this.plans = zim;
-    //   console.log(zim);
+    // fetchData() {
+    //   console.log('proba fetchData');
+    //   this.userReg.json();
     // },
   },
 };

@@ -18,12 +18,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="usersReg in usersReg" :key="usersReg.id">
+              <tr v-for="usersReg in usersReg" :key="usersReg.user">
                 <!-- <td>{{ usersReg.id }}></td> -->
-                <td>{{ usersReg.user }}></td>
-                <td>{{ usersReg.email }}></td>
-                <td>{{ usersReg.subs }}></td>
-                <td>{{ subsFromNow }}></td>
+                <td>{{ usersReg.user }}</td>
+                <td>{{ usersReg.email }}</td>
+                <td>{{ usersReg.subs }}</td>
+                <td>{{ usersReg.time }}</td>
               </tr>
             </tbody>
           </table>
@@ -52,35 +52,34 @@ export default {
   },
   mounted() {
     this.userRegList();
-    this.fetchData();
+    // this.fetchData();
   },
-  computed: {
-    subsFromNow(){
-      return moment(this.usersReg.time).format('DD MM YYYY')
-    }
-  },
+  // computed: {
+  //   subsFromNow(){
+  //     return moment(this.usersReg.time).format('DD MM YYYY')
+  //   }
+  // },
   methods: {
     userRegList() {
       db.collection("users")
         .get()
         .then((query) => {
-          (this.usersReg = []),
+          this.usersReg = [];
             query.forEach((doc) => {
               const data = doc.data();
               this.usersReg.push({
                 id: doc.id,
-                time: data.posted_at,
+                time: moment(data.posted_at).format('DD MM YYYY'),
                 user: data.name,
                 email: data.email,
                 subs: data.subscription,
               });
-              console.log(this.usersReg);
             });
         });
     },
-    async fetchData() {
-      await this.userReg.json();
-    },
+    // async fetchData() {
+    //   await this.userReg.json();
+    // },
   },
 };
 </script>
