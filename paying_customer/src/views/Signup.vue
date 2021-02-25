@@ -145,7 +145,7 @@ export default {
           quantity: 1,
         },
       ],
-      successURL: "https://payingcustomer.netlify.app/s ubscription", //moram napraviti succes page - ili baciti na neku ulogiranu stranicu
+      successURL: "https://payingcustomer.netlify.app/subscription", //moram napraviti succes page - ili baciti na neku ulogiranu stranicu
       cancelURL: "https://payingcustomer.netlify.app/cancel",
     };
   },
