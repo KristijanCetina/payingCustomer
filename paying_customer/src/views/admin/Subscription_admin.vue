@@ -87,6 +87,33 @@
             </template>
           </b-modal>
         </template>
+        <div class="subAdmin">
+          <h3>Pregled tipova pretplata:</h3>
+          <div class="table-responsive" >
+          <table class="table-hover">
+            <thead>
+              <tr>
+                <th scope="col"> ID</th>
+                <th scope="col">Iznos</th>
+                <th scope="col">Ime</th>
+                <th scope="col">Opis</th>
+                <th scope="col">Slika</th>
+                <th scope="col">Id cijene</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="subList in subList" :key="subList.id_plan">
+                <td>{{ subList.id_plan }}</td>
+                <td>{{ subList.suma }}</td>
+                <td>{{ subList.naziv }}</td>
+                <td>{{ subList.tekst }}</td>
+                <td>{{ subList.slika }}</td>
+                <td>{{ subList.price }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
       </div>
     </div>
   </div>
@@ -107,31 +134,77 @@ export default {
       tekst: "",
       price: "",
       id_plan: "",
+      subList: [],
     };
   },
   components: {
     adminNavi: admin_navi,
   },
+    mounted() {
+    this.getSubs()
+  },
   methods: {
     postNewSub() {
-      //trebam postaviti tu još verifikaciju polja - ili gore u body...
+      //ne znam je li postoji elegantniji nacin da ih sve verificiram :(
+      if (
+        this.suma === "" ||
+        this.slika === "" ||
+        this.naziv === "" ||
+        this.tekst === "" ||
+        this.price === "" ||
+        this.id_plan === ""
+      ) {
+        alert("Sva polja moraju biti popunjena");
+      } else {
+        db.collection("sub_types")
+          .add({
+            suma: this.suma,
+            slika: this.slika,
+            naziv: this.naziv,
+            tekst: this.tekst,
+            price: this.price,
+            planID: this.id_plan, //zapravo koristimo za definiranje redosljeda na options page
+          })
+          .then(() => {
+            console.log("Document successfully written!");
+          })
+          .then(() => {
+            this.$bvModal.hide("modal");
+          })
+          .catch((error) => {
+            console.error("Error writing document: ", error);
+          });
+      }
+    },
+    getSubs() {
       db.collection("sub_types")
-        .add({
-          suma: this.suma,
-          slika: this.slika,
-          naziv: this.naziv,
-          tekst: this.tekst,
-          price: this.price,
-          planID: this.id_plan, //zapravo koristimo za definiranje redosljeda na options page
-        })
-        .then(() => {
-          console.log("Document successfully written!");
-        })
-        .catch((error) => {
-          console.error("Error writing document: ", error);
+        .get()
+        .then((query) => {
+          query.forEach((doc) => {
+            const data = doc.data();
+            this.subList.push({
+              suma: data.suma,
+              slika: data.slika,
+              naziv: data.naziv,
+              tekst: data.tekst,
+              price: data.price,
+              id_plan: data.planID,
+            })
+            console.log(this.subList);
+          });
         });
     },
   },
 };
 </script>
+
 //koristila za modal https://bootstrap-vue.org/docs/components/modal
+//treba tu tablicu malo uljepšati :) https://getbootstrap.com/docs/4.1/content/tables/
+
+
+<style lang="scss" scoped>
+.subAdmin {
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+</style>

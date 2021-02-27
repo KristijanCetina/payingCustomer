@@ -54,11 +54,6 @@ export default {
     this.userRegList();
     // this.fetchData();
   },
-  // computed: {
-  //   subsFromNow(){
-  //     return moment(this.usersReg.time).format('DD MM YYYY')
-  //   }
-  // },
   methods: {
     userRegList() {
       db.collection("users")
