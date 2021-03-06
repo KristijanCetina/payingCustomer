@@ -81,7 +81,7 @@ firebase.auth().onAuthStateChanged(user => {
 
     if (admins.includes(user.uid)) {
       store.userIsAdmin = true;
-      console.log("user je admin");
+      console.log('%c user je admin', "font-weight: bold"); //fora s https://www.youtube.com/watch?v=v2tJ3nzXh8I&ab_channel=WebDevSimplified :) 
     } else {
       store.userIsAdmin = false; // iako je po default false neka se nađe.
     }
