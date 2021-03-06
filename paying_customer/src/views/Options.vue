@@ -18,17 +18,17 @@
       </div>
       <div class="col-xs-6 col-md-7">
         <div class="container">
-          <h1 class="centerTitle" style="color: #384F7B">PLANS</h1>
+          <h1 class="centerTitle" style="color: #384f7b">PLANS</h1>
           <br />
           <div class="row">
             <subscriptionCard
-              v-for="plan in plans"
-              :key="plan.id"
-              :suma="plan.suma"
-              :tekst="plan.tekst"
-              :slika="plan.slika"
-              :naziv="plan.naziv"
-              :price="plan.price"
+              v-for="subList in subList"
+              :key="subList.id_plan"
+              :suma="subList.suma"
+              :tekst="subList.tekst"
+              :slika="subList.slika"
+              :naziv="subList.naziv"
+              :price="subList.price"
             ></subscriptionCard>
           </div>
         </div>
@@ -39,6 +39,7 @@
 
 <script>
 import subscriptionCard from "@/components/subscriptionCard.vue";
+import { db } from "@/firebase";
 
 export default {
   name: "Subscription",
@@ -46,19 +47,31 @@ export default {
     subscriptionCard: subscriptionCard,
   },
   mounted() {
-    this.fetchData();
+    this.getSubs();
   },
   data() {
     return {
-      plans: [],
+      subList: [],
     };
   },
   methods: {
-    async fetchData() {
-      const pes = await fetch("plans.json");
-      const zim = await pes.json();
-      this.plans = zim;
-      console.log(zim);
+    getSubs() {
+      db.collection("sub_types")
+        .get()
+        .then((query) => {
+          query.forEach((doc) => {
+            const data = doc.data();
+            this.subList.push({
+              suma: data.suma,
+              slika: data.slika,
+              naziv: data.naziv,
+              tekst: data.tekst,
+              price: data.price,
+              id_plan: data.planID,
+            });
+            console.log(this.subList);
+          });
+        });
     },
   },
 };

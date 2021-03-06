@@ -6,7 +6,7 @@
       <div class="col-md-9">
         <h3>Ovdje možete stvoriti nove pretplate</h3>
         <template>
-          <b-button @click="$bvModal.show('modal')"
+          <b-button @click="$bvModal.show('modal')" 
             >Stvori novu pretplatu</b-button
           >
 
@@ -87,33 +87,23 @@
             </template>
           </b-modal>
         </template>
-        <div class="subAdmin">
-          <h3>Pregled tipova pretplata:</h3>
-          <div class="table-responsive" >
-          <table class="table-hover">
-            <thead>
-              <tr>
-                <th scope="col"> ID</th>
-                <th scope="col">Iznos</th>
-                <th scope="col">Ime</th>
-                <th scope="col">Opis</th>
-                <th scope="col">Slika</th>
-                <th scope="col">Id cijene</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="subList in subList" :key="subList.id_plan">
-                <td>{{ subList.id_plan }}</td>
-                <td>{{ subList.suma }}</td>
-                <td>{{ subList.naziv }}</td>
-                <td>{{ subList.tekst }}</td>
-                <td>{{ subList.slika }}</td>
-                <td>{{ subList.price }}</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="container">
+        <h1 class="centerTitle" style="color: #384f7b">
+          Pregled tipova pretplata:
+        </h1>
+        <br />
+        <div class="row">
+          <subscriptionCard
+            v-for="subList in subList"
+            :key="subList.id_plan"
+            :suma="subList.suma"
+            :tekst="subList.tekst"
+            :slika="subList.slika"
+            :naziv="subList.naziv"
+            :price="subList.price"
+          ></subscriptionCard>
         </div>
-        </div>
+      </div>
       </div>
     </div>
   </div>
@@ -122,6 +112,7 @@
 
 <script>
 import admin_navi from "@/components/admin_navi.vue";
+import subscriptionCard from "@/components/subscriptionCard.vue";
 import { db } from "@/firebase";
 
 export default {
@@ -139,9 +130,10 @@ export default {
   },
   components: {
     adminNavi: admin_navi,
+    subscriptionCard: subscriptionCard,
   },
-    mounted() {
-    this.getSubs()
+  mounted() {
+    this.getSubs();
   },
   methods: {
     postNewSub() {
@@ -189,7 +181,7 @@ export default {
               tekst: data.tekst,
               price: data.price,
               id_plan: data.planID,
-            })
+            });
             console.log(this.subList);
           });
         });
@@ -203,6 +195,25 @@ export default {
 
 
 <style lang="scss" scoped>
+// @import "./../assets/contactCard.scss";
+
+@media (max-width: 1150px) {
+  .imgH {
+    display: none;
+  }
+  .blueLine {
+    display: none;
+  }
+  .centerTitle {
+    margin-top: 20px;
+  }
+  .col-md-7 {
+    margin: auto;
+    width: 80%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
 .subAdmin {
   padding-top: 50px;
   padding-bottom: 30px;
