@@ -101,7 +101,7 @@ export default {
   methods: {
     getSubs() {
       if (store.subsType === null) {
-        alert("Nije odabran niti jedan plan pretplate!");
+        this.$alert("Nije odabran niti jedan plan pretplate!");
       } else {
         db.collection("sub_types")
           .doc(store.subsType)
@@ -137,7 +137,7 @@ export default {
         this.price === "" ||
         this.id_plan === ""
       ) {
-        alert("Sva polja moraju biti popunjena");
+        this.$alert("Sva polja moraju biti popunjena");
       } else {
         db.collection("sub_types")
           .doc(store.subsType)
@@ -153,7 +153,7 @@ export default {
             console.log("Document successfully written!");
           })
           .then(() => {
-            alert("Uspješno spremljene promjene!");
+            this.$alert("Uspješno spremljene promjene!");
             this.$router.replace({ name: "Subscription_admin" });
           })
           .catch((error) => {
@@ -162,7 +162,7 @@ export default {
       }
     },
     cancelEdit(){
-      alert("Odustali ste od promjena!");
+      this.$alert("Odustali ste od promjena!");
       this.$router.replace({ name: "Subscription_admin" });
     }
   },

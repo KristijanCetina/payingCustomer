@@ -152,10 +152,10 @@ export default {
   methods: {
     signup() {
       if (this.password != this.repeatedPassword) {
-        alert("The passwords do not match!");
+        this.$alert("The passwords do not match!");
       }
       if (this.TermsCheck == false) {
-        alert("You have to accept Terms of service!");
+        this.$alert("You have to accept Terms of service!");
       } else {
         //ako je forma ispunjena krece verifikacija i registracija
         firebase
@@ -184,7 +184,7 @@ export default {
           .then(() => {
             if (store.subsType !== null) {
               // ako je korisnik došao sa stranice s paketa šaljemo ga na placanje
-              alert ('Bit ce te presumjereni na stanicu za placanje te vam je poslan verifikacijski email')
+              this.$alert("Bit ce te presumjereni na stanicu za placanje te vam je poslan verifikacijski email");
               this.pay();
             } else {
               //ako se samo išao registrirati
@@ -192,9 +192,7 @@ export default {
                 .auth()
                 .signOut()
                 .then(() => {
-                  alert(
-                    "Potrebno je verificirati e-mail prije korištenja aplikacije pomoću poslanog linka."
-                  );
+                    this.$alert("Potrebno je verificirati e-mail prije korištenja aplikacije pomoću poslanog linka.");
                 });
             }
           })
@@ -229,6 +227,7 @@ export default {
     },
     regUser() {
       alert("upisujem");
+
       db.collection("users").add({
         name: this.fullName,
         email: this.email,
