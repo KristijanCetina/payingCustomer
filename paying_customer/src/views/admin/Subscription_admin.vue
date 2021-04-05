@@ -78,12 +78,14 @@
 
             <template #modal-footer="{ cancel }">
               <!-- Emulate built in modal footer ok and cancel button actions -->
-              <b-button size="sm" variant="success" @click.prevent="postNewSub">
+              <b-row>
+              <b-button class="mr-1"  variant="success" @click.prevent="postNewSub">
                 SAVE
               </b-button>
-              <b-button size="sm" variant="danger" @click="cancel()">
+              <b-button  variant="danger" @click="cancel()">
                 Cancel
               </b-button>
+              </b-row>
             </template>
           </b-modal>
         </template>
