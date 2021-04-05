@@ -161,6 +161,14 @@ const routes = [
     },
   },
   {
+    path: '/edit-subs',
+    name: 'Edit_Subs',
+    component: () => import('../views/admin/Edit_subs.vue'),
+    meta: {
+      needsAdmin: true,
+    },
+  },  
+  {
     path: '/test',
     name: 'test',
     component: () => import('../views/test.vue'),
