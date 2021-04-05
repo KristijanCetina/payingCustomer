@@ -82,7 +82,7 @@
   transition: box-shadow 0.3s;
 }
 .btn:hover {
-  box-shadow: 20px 20px 40px 0px #384f7b;
+  box-shadow: 15px 15px 30px 0px #384f7b;
 }
 @media (max-width: 991px) {
   /* za sakrivanje prilikom smanjvanja window-a */
