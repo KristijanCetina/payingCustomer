@@ -30,7 +30,7 @@
             <b-dropdown
               v-if="store.currentUser"
               id="dropdown-right"
-              variant="info"
+              variant="primary"
               size="lg"
               right
               text="Profile"
@@ -45,13 +45,10 @@
                 >Log Out</b-dropdown-item
               >
             </b-dropdown>
-
-            <li v-if="!store.currentUser" class="nav-item">
-              <router-link class="nav-link" to="/login">Login</router-link>
-            </li>
-            <li v-if="!store.currentUser" class="nav-item">
-              <router-link class="nav-link" to="/signup">Sign up</router-link>
-            </li>
+            
+            <b-button pill style="background-color:#384f7b" to="/login" v-if="!store.currentUser">Login</b-button><pre> </pre>
+            <b-button pill style="background-color:#384f7b" to="/signup" v-if="!store.currentUser">Sing up</b-button>
+            
           </ul>
         </b-collapse>
       </b-navbar>
