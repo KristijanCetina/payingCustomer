@@ -148,7 +148,7 @@ export default {
         this.price === "" ||
         this.id_plan === ""
       ) {
-        alert("Sva polja moraju biti popunjena");
+        this.$alert("Sva polja moraju biti popunjena");
       } else {
         db.collection("sub_types")
           .add({
@@ -157,7 +157,7 @@ export default {
             naziv: this.naziv,
             tekst: this.tekst,
             price: this.price,
-            planID: this.id_plan, //zapravo koristimo za definiranje redosljeda na options page
+            planID: this.id_plan, //zapravo redundantno jer kao ID koristimo price
           })
           .then(() => {
             console.log("Document successfully written!");
