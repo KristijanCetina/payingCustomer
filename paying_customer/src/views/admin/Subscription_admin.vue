@@ -165,6 +165,7 @@ export default {
           })
           .then(() => {
             this.$bvModal.hide("modal");
+            location.reload();
           })
           .then(()=>{
             location.reload();
@@ -197,8 +198,6 @@ export default {
 </script>
 
 //koristila za modal https://bootstrap-vue.org/docs/components/modal
-//treba tu tablicu malo uljepšati :) https://getbootstrap.com/docs/4.1/content/tables/
-
 
 <style lang="scss" scoped>
 // @import "./../assets/contactCard.scss";

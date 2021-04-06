@@ -34,6 +34,15 @@
           bottom
           >Edit</b-button
         >
+        <b-button
+          v-if="userIsAdmin === true"
+          v-on:click="delSub(price)"
+          variant="danger"
+          block
+          pill
+          bottom
+          >Delete</b-button
+        >
       </b-card>
     </div>
   </div>
@@ -42,6 +51,7 @@
 
 <script>
 import store from "@/store";
+import { db } from "@/firebase";
 
 export default {
   data: function () {
@@ -59,6 +69,31 @@ export default {
     editSub(message) {
       store.subsType = message;
       this.$router.replace({ name: "Edit_Subs" });
+    },
+    delSub(message) {
+      this.$confirm("Are you sure?")
+      .then(() => {
+        store.subsType = message;
+      })
+      .then(() =>{
+        this.deleteFire();
+      }
+      );
+    },
+    deleteFire() {
+      console.log("brišem", store.subsType);
+      db.collection("sub_types")
+        .doc(store.subsType)
+        .delete()
+        .then(() => {
+          console.log("Document successfully deleted!");
+          this.$alert("Document successfully deleted!");
+          location.reload()
+        })
+        .catch((error) => {
+          console.error("Error removing document: ", error);
+          this.$alert(error);
+        });
     },
   },
 };
