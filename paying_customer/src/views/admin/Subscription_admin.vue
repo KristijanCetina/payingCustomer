@@ -151,7 +151,8 @@ export default {
         this.$alert("Sva polja moraju biti popunjena");
       } else {
         db.collection("sub_types")
-          .add({
+          .doc(this.price)
+          .set({
             suma: this.suma,
             slika: this.slika,
             naziv: this.naziv,
@@ -164,6 +165,7 @@ export default {
           })
           .then(() => {
             this.$bvModal.hide("modal");
+            location.reload();
           })
           .catch((error) => {
             console.error("Error writing document: ", error);
@@ -193,8 +195,6 @@ export default {
 </script>
 
 //koristila za modal https://bootstrap-vue.org/docs/components/modal
-//treba tu tablicu malo uljepšati :) https://getbootstrap.com/docs/4.1/content/tables/
-
 
 <style lang="scss" scoped>
 // @import "./../assets/contactCard.scss";

@@ -5,28 +5,8 @@
       <div class="col-md-3"></div>
       <div class="col-md-9">
         <h1>Trenutno registrirani korisnici:</h1>
-        <!-- <subs_info /> za neka buduca vremena ako se bude koristilo-->
-        <div class="table-responsive">
-          <table class="table-hover">
-            <thead>
-              <tr>
-                <!-- <th>Id</th> -->
-                <th>Name</th>
-                <th>Email</th>
-                <th>Subscription</th>
-                <th>Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="usersReg in usersReg" :key="usersReg.user">
-                <!-- <td>{{ usersReg.id }}></td> -->
-                <td>{{ usersReg.user }}</td>
-                <td>{{ usersReg.email }}</td>
-                <td>{{ usersReg.subs }}</td>
-                <td>{{ usersReg.time }}</td>
-              </tr>
-            </tbody>
-          </table>
+        <div>
+          <b-table striped hover sticky-header="800px" head-variant="light" :items="usersReg" :fields="fields"></b-table>
         </div>
       </div>
     </div>
@@ -47,12 +27,12 @@ export default {
   },
   data() {
     return {
+      fields: ['user', 'email', 'subs', 'time'],
       usersReg: [],
     };
   },
   mounted() {
     this.userRegList();
-    // this.fetchData();
   },
   methods: {
     userRegList() {
@@ -60,21 +40,19 @@ export default {
         .get()
         .then((query) => {
           this.usersReg = [];
-            query.forEach((doc) => {
-              const data = doc.data();
-              this.usersReg.push({
-                id: doc.id,
-                time: moment(data.posted_at).format('DD MM YYYY'),
-                user: data.name,
-                email: data.email,
-                subs: data.subscription,
-              });
+          query.forEach((doc) => {
+            const data = doc.data();
+            this.usersReg.push({
+              id: doc.id,
+              time: moment(data.posted_at).format("DD/MM/YYYY"),
+              user: data.name,
+              email: data.email,
+              subs: data.subscription,
             });
+          });
         });
     },
-    // async fetchData() {
-    //   await this.userReg.json();
-    // },
   },
 };
 </script>
+
