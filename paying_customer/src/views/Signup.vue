@@ -3,7 +3,7 @@
     <div class="blueLine"></div>
     <div class="row">
       <div class="col-xs-6 col-md-6">
-        <br /><br />
+        <br><br>
         <img
           style="width: 400px; margin-left: 53px; border-radius: 83px"
           src="@/assets/logoPC.png"
@@ -17,9 +17,8 @@
         </div>
       </div>
       <div class="col-xs-6 col-md-4 col">
-        <br />
         <h1>Create new account</h1>
-        <br />
+        <br>
         <form>
           <div class="form-group">
             <label for="emailAdress">Full name</label>
@@ -29,6 +28,7 @@
               class="form-control"
               id="Name"
               placeholder="Enter your full name"
+              required
             />
           </div>
           <div class="form-group">
@@ -121,7 +121,7 @@ import { firebase } from "@/firebase";
 import { StripeCheckout } from "@vue-stripe/vue-stripe";
 import store from "@/store";
 import { db } from "@/firebase";
-
+let marko="";
 export default {
   name: "Signup",
   components: {
@@ -153,6 +153,9 @@ export default {
     signup() {
       if (this.password != this.repeatedPassword) {
         this.$alert("The passwords do not match!");
+      }
+      if (this.fullName == marko) {
+        this.$alert("Kontaktirajte administratora da Vam dodjeli korisničko ime!");
       }
       if (this.TermsCheck == false) {
         this.$alert("You have to accept Terms of service!");
