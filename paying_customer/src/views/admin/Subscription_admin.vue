@@ -4,9 +4,11 @@
       <adminNavi />
       <div class="col-md-3"></div>
       <div class="col-md-9">
-        <h3>Ovdje možete stvoriti nove pretplate</h3>
+        <div class="my-6">
+          <h2>Ovdje možete stvoriti nove pretplate</h2>
+        </div>
         <template>
-          <b-button @click="$bvModal.show('modal')" 
+          <b-button @click="$bvModal.show('modal')"
             >Stvori novu pretplatu</b-button
           >
 
@@ -79,33 +81,31 @@
             <template #modal-footer="{ cancel }">
               <!-- Emulate built in modal footer ok and cancel button actions -->
               <b-row>
-              <b-button class="mr-1"  variant="success" @click.prevent="postNewSub">
-                SAVE
-              </b-button>
-              <b-button  variant="danger" @click="cancel()">
-                Cancel
-              </b-button>
+                <b-button class="mr-1" variant="success" @click="postNewSub">
+                  SAVE
+                </b-button>
+                <b-button variant="danger" @click="cancel()"> Cancel </b-button>
               </b-row>
             </template>
           </b-modal>
         </template>
-        <div class="container">
-        <h1 class="centerTitle" style="color: #384f7b">
-          Pregled tipova pretplata:
-        </h1>
-        <br />
-        <div class="row">
-          <subscriptionCard
-            v-for="subList in subList"
-            :key="subList.id_plan"
-            :suma="subList.suma"
-            :tekst="subList.tekst"
-            :slika="subList.slika"
-            :naziv="subList.naziv"
-            :price="subList.price"
-          ></subscriptionCard>
+        <div class="container mt-5">
+          <h1 class="centerTitle" style="color: #384f7b">
+            Pregled tipova pretplata:
+          </h1>
+          <br />
+          <div class="row h-100">
+            <subscriptionCard
+              v-for="subList in subList"
+              :key="subList.id_plan"
+              :suma="subList.suma"
+              :tekst="subList.tekst"
+              :slika="subList.slika"
+              :naziv="subList.naziv"
+              :price="subList.price"
+            ></subscriptionCard>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   </div>
