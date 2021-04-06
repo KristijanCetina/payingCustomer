@@ -142,12 +142,12 @@ export default {
         db.collection("sub_types")
           .doc(store.subsType)
           .set({
+            planID: this.id_plan, //zapravo redundantno jer kao ID koristimo price
             suma: this.suma,
             slika: this.slika,
             naziv: this.naziv,
             tekst: this.tekst,
             price: this.price,
-            planID: this.id_plan, //zapravo redundantno jer kao ID koristimo price
           })
           .then(() => {
             console.log("Document successfully written!");

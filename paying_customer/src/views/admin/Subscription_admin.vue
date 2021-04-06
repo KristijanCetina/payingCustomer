@@ -151,7 +151,8 @@ export default {
         this.$alert("Sva polja moraju biti popunjena");
       } else {
         db.collection("sub_types")
-          .add({
+          .doc(this.price)
+          .set({
             suma: this.suma,
             slika: this.slika,
             naziv: this.naziv,
@@ -164,6 +165,9 @@ export default {
           })
           .then(() => {
             this.$bvModal.hide("modal");
+          })
+          .then(()=>{
+            location.reload();
           })
           .catch((error) => {
             console.error("Error writing document: ", error);

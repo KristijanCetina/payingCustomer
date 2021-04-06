@@ -4,14 +4,14 @@
       <b-card
         style="width: 200px"
         body-class="text-center"
-        :title="suma"
+        :title="naziv"
         :img-src="slika"
         :img-alt="naziv"
         img-top
       >
         <!-- ako budemo htjeli dodavati za nekakv bolji izgled kartice -->
         <!-- <b-card-img src="https://placekitten.com/480/210" alt="Image" img-top></b-card-img> -->
-        <b-card-text v-text="naziv"> </b-card-text>
+        <b-card-text v-text="suma"> </b-card-text>
         <b-card-text v-text="tekst"> </b-card-text>
 
         <b-button
