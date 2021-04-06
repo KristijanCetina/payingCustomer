@@ -23,11 +23,7 @@
           <div class="row">
             <newsCard
               class="alignCard"
-              v-for="news in displayNews"
-              :key="news.id"
-              :name="news.name"
-              :tekst="news.tekst"
-              :date="news.date"
+              v-for="news in displayNews" :key="news.id" :name="news.name" :tekst="news.tekst" :date="news.date"
             ></newsCard>
           </div>
           <div class="mt-3">
@@ -66,7 +62,7 @@ export default {
   },
   data() {
     return {
-      // news: [],
+      news: [],
       displayNews: [],
       currentPage: 1,
       rows: 1,
@@ -74,6 +70,10 @@ export default {
     };
   },
   methods: {
+    async fetchNewsData(){
+      this.rows = this.displayNews.store.length;
+    },
+    
     paginate(currentPage) {
       const start = (currentPage - 1) * this.perPage;
       this.displayNews = this.news.slice(start, start + 2);

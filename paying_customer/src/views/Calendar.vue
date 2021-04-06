@@ -16,13 +16,13 @@
           <a href="#" class="fa fa-instagram"></a>
         </div>
       </div>
-      <div class="col-md-5 offset-md-1">
+      <div class="col-md-6 offset-md-0"><h1 style="color: #384F7B;">CALENDAR</h1>
         <div class="limit">
         <iframe
           src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FBelgrade&amp;src=ZnJyYjZpNXNjazRtYTBhajRrNGU2bGJmc29AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=aHIuY3JvYXRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%238E24AA&amp;color=%230B8043"
           style="border: solid 1px #777"
-          width=100%
-          height="600"
+          width=110%
+          height="450"
           frameborder="0"
           scrolling="no"
         ></iframe>
