@@ -3,7 +3,7 @@
     <div class="blueLine"></div>
     <div class="row">
       <div class="col-xs-6 col-md-6 imgH">
-        <br /><br />
+        <br><br>
         <img
           style="width: 400px; margin-left: 53px; border-radius: 83px"
           src="@/assets/logoPC.png"
@@ -17,9 +17,8 @@
         </div>
       </div>
       <div class="col-xs-6 col-md-4 col">
-        <br />
         <h1>Login to your account</h1>
-        <br />
+        <br>
         <form>
           <div class="form-group">
             <label for="emailAdress">Email address</label>
