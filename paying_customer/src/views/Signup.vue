@@ -135,9 +135,6 @@ export default {
       email: "",
       password: "",
       repeatedPassword: "",
-      TermsCheck: {
-        accept: true,
-      },
       loading: false,
       lineItems: [
         {
@@ -157,7 +154,7 @@ export default {
       if (this.fullName == marko) {
         this.$alert("Kontaktirajte administratora da Vam dodjeli korisničko ime!");
       }
-      if (this.TermsCheck == false) {
+      if (this.TermsCheck != true) {
         this.$alert("You have to accept Terms of service!");
       } else {
         //ako je forma ispunjena krece verifikacija i registracija
