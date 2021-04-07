@@ -6,7 +6,12 @@
       <div class="col-md-9">
         <h1>Trenutno registrirani korisnici:</h1>
         <div>
-          <b-table striped hover sticky-header="800px" head-variant="light" :items="usersReg" :fields="fields"></b-table>
+          <b-table striped hover sticky-header="410px" 
+          head-variant="light" 
+          :items="usersReg" 
+          :fields="fields"
+          >
+          </b-table>
         </div>
       </div>
     </div>
