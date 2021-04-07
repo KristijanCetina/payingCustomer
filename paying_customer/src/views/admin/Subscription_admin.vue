@@ -72,7 +72,7 @@
                     type="id_plana"
                     class="form-control"
                     id="id_plana"
-                    placeholder="ID plana - mora biti jedinstven i numerički"
+                    placeholder="ID plana - služi za sortiranje"
                   />
                 </div>
               </form>
