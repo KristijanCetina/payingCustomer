@@ -58,15 +58,14 @@ export default {
     };
   },
   methods: {
-    setData(data) {
-      this.displayNews.push({
-        id: data.id,
-        name: data.name,
-        tekst: data.text,
-        date: data.date,
-      });
-    },
-
+    // setData(data) {
+    //   this.displayNews.push({
+    //     id: data.id,
+    //     name: data.name,
+    //     tekst: data.text,
+    //     date: data.date,
+    //   });
+    // },redundantno
     paginate(currentPage) {
       const start = (currentPage - 1) * this.perPage;
       this.displayNews = this.news.slice(start, start + 3);
