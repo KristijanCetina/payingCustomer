@@ -47,7 +47,7 @@
             </b-dropdown>
             
             <b-button pill style="background-color:#384f7b" to="/login" v-if="!store.currentUser">Login</b-button><pre> </pre>
-            <b-button pill style="background-color:#384f7b" to="/signup" v-if="!store.currentUser">Sing up</b-button>
+            <b-button pill style="background-color:#384f7b" to="/signup" v-if="!store.currentUser">Sign up</b-button>
             
           </ul>
         </b-collapse>
